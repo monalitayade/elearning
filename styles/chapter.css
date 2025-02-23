@@ -27,9 +27,13 @@ img {
 .chapter-topics-layout {
   width: 0; /* Start hidden */
   max-width: 450px; /* Ensures it doesn't grow beyond this */
-  margin-top: 75px;
+  margin-top: 61px;
   transition: width 0.5s ease-in-out;
   box-shadow: 4px 4px 12px -11px #8089e1;
+  display: flex;
+  overflow: hidden; /* Hide content when width is 0 */
+  white-space: nowrap;
+  align-items: flex-start;
 }
 .chapter-topics-layout.open {
   width: 450px;
@@ -86,7 +90,8 @@ img {
   justify-content: flex-start;
   align-items: center;
   text-decoration: none;
-  color: var(--text-white);
+  /* color: var(--text-white); */
+  color: var(--text-color);
   font-family: "Poppins", serif;
   font-size: 14px;
   font-weight: 500;
@@ -170,7 +175,7 @@ a.sub-topic-link {
 .chapter-right-section {
   width: 100%;
   padding: 0 5%;
-  margin-top: 75px;
+  margin-top: 61px;
 }
 .full-width {
   width: 100%;

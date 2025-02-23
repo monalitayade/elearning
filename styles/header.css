@@ -14,6 +14,9 @@
 img {
   width: 100%;
 }
+.body-layout {
+  background-color: var(--background-color);
+}
 header {
   width: 100%;
   display: flex;
