@@ -23,6 +23,7 @@ header {
   background-color: var(--primary-color);
   position: fixed;
   padding: 8px 20px;
+  z-index: 1;
 }
 .header-layout {
   width: 100%;

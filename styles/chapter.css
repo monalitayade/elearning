@@ -90,8 +90,7 @@ img {
   justify-content: flex-start;
   align-items: center;
   text-decoration: none;
-  /* color: var(--text-white); */
-  color: var(--text-color);
+  color: var(--text-white);
   font-family: "Poppins", serif;
   font-size: 14px;
   font-weight: 500;
