@@ -31,7 +31,7 @@
   </head>
 
   <body class="body-layout">
-    <!-- <header>
+    <header  data-aos="fade-down">
       <div class="header-layout">
         <button class="mobile-nav">
           <span class="ham-line"></span>
@@ -41,7 +41,7 @@
         <a href="#" class="logo-link">
           <img src="./images/white-logo.png" alt="logo" />
         </a>
-        <div class="popup-overlay"></div>
+        <div class="menu-popup-overlay"></div>
         <nav>
           <ul class="nav-ul">
             <li class="nav-li">
@@ -66,14 +66,15 @@
               </button>
             </li>
             <li class="left-nav-li">
-              <button class="search-btn">
-                <img src="./images/profile.svg" alt="profile" />
+              <button class="login-btn ">
+                <!-- <img src="./images/profile.svg" alt="profile" /> -->
+                 Login
               </button>
             </li>
           </ul>
         </div>
       </div>
-    </header> -->
+    </header>
     <div class="website-layout-wrapper">
       <section class="subject-layout" >
         <div class="subject-grid-section"  data-aos="fade-in" data-aos-delay="200" 
@@ -311,10 +312,19 @@
                     </div>                 
                 </div>
               </div>
-            </div>
           </div>
         </div>
+        </div>
       </section>
+      <div class="search-popup" data-aos="fade-in">
+        <div class="popup-overlay"></div>
+        <div class="search-popup-plot">
+          <div class="search-input-wrapper">
+            <input type="search" name="search" class="search-input"/>
+            <button class="search-button">Search</button>
+          </div>
+        </div>
+      </div>
     </div>
     <script src="./js/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -359,19 +369,85 @@
           });
       });
 
+
+      AOS.init({
+            selector: 'header[data-aos]',
+            once: true,  // Change to false if you want to repeat animation
+            offset: 200,
+            duration: 600
+        });
       //animation script
       AOS.init({
         duration: 800,
-  easing: 'ease-in-out',
-  once: true,
-  mirror: true, // re-animate on scroll back up
+        easing: 'ease-in-out',
+        once: true,
+        mirror: true, // re-animate on scroll back up
+      });
+
+      jQuery(document).ready(function () {
+
+        //header animation 
+    //     if (jQuery(window).scrollTop() > 200) {
+    //     jQuery('header').addClass('scrolled');  // Optional - add a class for styling when sticky
+    // } else {
+    //     jQuery('header').removeClass('scrolled');
+    // }
+  
+       //mobile menubar
+        jQuery(".mobile-nav").click(function () {
+          jQuery(this).toggleClass("active");
+          jQuery(".menu-popup-overlay").toggleClass("open");
+          jQuery(".chapter-top-bar").toggleClass("zindex");
+
+          let $nav = jQuery("nav");
+
+          if ($nav.css("left") === "0px") {
+            $nav.animate({ left: "-100%" }, 700); // Slide out (hide)
+          } else {
+            $nav.animate({ left: "0%" }, 700); // Slide in (show)
+          }
+        });
+
+        if (window.innerWidth <= 1112) {
+          jQuery("#show-topics").click(function () {
+            let $topics = jQuery(".chapter-topics-layout");
+
+            if ($topics.css("left") === "0px") {
+              $topics.animate({ left: "-100%" }, 500); // Slide out (hide)
+            } else {
+              $topics.animate({ left: "0%" }, 500); // Slide in (show)
+            }
+          });
+        } else {
+          jQuery("#show-topics").click(function () {
+            jQuery(".chapter-topics-layout").toggleClass("open");
+          });
+        }
+
+        jQuery(".topic-link").click(function (e) {
+          e.preventDefault();
+          jQuery(this).next().slideToggle();
+          jQuery(this).toggleClass("active");
+        });
+        jQuery(".mobile-topic-close").click(function () {
+          jQuery(".chapter-topics-layout").animate({ left: "-100%" }, 500);
+        });
+
+        //search popup
+        jQuery('.search-btn').on('click', function() {
+            jQuery('.search-popup').addClass('active');
+        });
+        jQuery('.popup-overlay').on('click', function() {
+            jQuery('.search-popup').removeClass('active');
+        });
+        
       });
     </script>
     <!-- <script>
       jQuery(document).ready(function () {
         jQuery(".mobile-nav").click(function () {
           jQuery(this).toggleClass("active");
-          jQuery(".popup-overlay").toggleClass("open");
+          jQuery(".menu-popup-overlay").toggleClass("open");
           jQuery(".chapter-top-bar").toggleClass("zindex");
 
           let $nav = jQuery("nav");
