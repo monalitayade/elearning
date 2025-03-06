@@ -925,6 +925,9 @@ tr {
     width: 100%;
     margin: 0 0 30px;
   }
+  .activities-section {
+    overflow: hidden;
+  }
 }
 @keyframes shimmer {
   from {
