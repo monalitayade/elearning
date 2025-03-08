@@ -74,7 +74,20 @@ jQuery(document).ready(function () {
   });
 
   //profile popup icon
-  jQuery(".profile-plot").on("click", function () {
+  jQuery(".avtar-plot,.profile-name,.arrow").on("click", function () {
     jQuery(".profile-popup").toggleClass("show-profile-items");
+    jQuery(".notification-popup").removeClass("show-noti-items");
   });
+
+  //notification popup icon
+  jQuery(".notification-btn").on("click", function () {
+    jQuery(".notification-popup").toggleClass("show-noti-items");
+    jQuery(".profile-popup").removeClass("show-profile-items");
+  });
+
+  if (window.innerWidth <= 1112) {
+    jQuery(".search-btn").on("click", function () {
+      jQuery(".search-popup").addClass("active");
+    });
+  }
 });
