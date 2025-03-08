@@ -281,6 +281,8 @@ button.login-btn:hover {
 }
 @media (max-width: 1112px) {
   .top-navbar {
+    position: fixed;
+    z-index: 3;
     padding: 10px 5%;
   }
 }
@@ -608,6 +610,7 @@ button.login-btn:hover {
 @media (max-width: 600px) {
   .chapter-topics-layout.open {
     width: 85%;
+    height: 100vh;
   }
 }
 .topics-wrapper {
@@ -1002,6 +1005,12 @@ ul {
   flex-direction: column;
   background-color: var(--background-color);
   padding: 0 2%;
+}
+
+@media (max-width: 1112px) {
+  .subject-layout {
+    margin-top: 60px;
+  }
 }
 
 .subject-grid-section {
