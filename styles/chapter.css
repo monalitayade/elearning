@@ -596,6 +596,7 @@ button.login-btn:hover {
     width: 60%;
     background-color: var(--primary-color);
     padding-top: 0;
+    z-index: 4;
   }
   .mobile-close {
     display: flex;
