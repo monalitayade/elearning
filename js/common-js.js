@@ -13,6 +13,32 @@ jQuery(document).ready(function () {
   //   }
   // });
 
+  //jquery for fixed sidebar and scrollable full-width footer
+  // const $sidebar = $("#sidebar");
+  // const $mainContent = $("#main-content");
+  // const $footer = $("#footer");
+
+  // let observer = new IntersectionObserver(
+  //   function (entries) {
+  //     entries.forEach(function (entry) {
+  //       if (entry.isIntersecting && isFixed) {
+  //         // Footer is visible - allow scrolling
+  //         $sidebar.css("position", "relative");
+  //         $mainContent.css("overflow-y", "auto");
+  //         isFixed = false; // Update state
+  //       } else {
+  //         // Footer is not visible - keep sidebar fixed
+  //         $sidebar.css("position", "fixed");
+  //         $mainContent.css("overflow-y", "hidden");
+  //         isFixed = true; // Update state
+  //       }
+  //     });
+  //   },
+  //   { threshold: 0.1 } // Trigger when 10% of the footer is visible
+  // );
+
+  // observer.observe($footer[0]); // Use [0] to pass the DOM element
+
   jQuery(".topic-link").click(function (e) {
     e.preventDefault();
     // jQuery(this).next().slideToggle();
@@ -90,4 +116,13 @@ jQuery(document).ready(function () {
       jQuery(".search-popup").addClass("active");
     });
   }
+
+  //welcome popup jquery
+  setTimeout(function () {
+    $(".welcome-popup").fadeIn();
+  }, 3000);
+
+  $(".close-popup").click(function () {
+    $(".welcome-popup").fadeOut();
+  });
 });
