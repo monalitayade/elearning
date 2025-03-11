@@ -1916,7 +1916,7 @@ tr {
 @media (max-width: 1112px) {
   .welcome-popup-plot {
     width: 80%;
-    left: calc((100% - 80%) / 2);
+    /* left: calc((100% - 80%) / 2); */
   }
   .welcome-popup-plot .close-popup {
     width: 50px;
