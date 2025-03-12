@@ -1,49 +1,67 @@
 jQuery(document).ready(function () {
-  //collapse navigation for web
-  // jQuery(".hamburger-icon").on("click", function () {
-  //   if (jQuery(".chapter-topics-layout").hasClass("open")) {
-  //     console.log("collapse");
+  //chapter subject slider
+  var swiper = new Swiper(".subject-grid-wrapper", {
+    slidesPerView: 7,
+    spaceBetween: 3,
+    loop: false,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    breakpoints: {
+      1336: {
+        slidesPerView: 8,
+        spaceBetween: 50,
+      },
+      1024: {
+        slidesPerView: 5,
+        spaceBetween: 50,
+      },
+      768: {
+        slidesPerView: 4,
+        spaceBetween: 40,
+      },
+      640: {
+        slidesPerView: 2.3,
+        spaceBetween: 15,
+      },
+      0: {
+        slidesPerView: 2,
+        spaceBetween: 15,
+      },
+    },
+  });
 
-  //     jQuery(".right-side-wrapper").addClass("full-width");
-  //     jQuery(".chapter-topics-layout").removeClass("open");
-  //   } else {
-  //     console.log("open");
-  //     jQuery(".chapter-topics-layout").addClass("open");
-  //     jQuery(".right-side-wrapper").removeClass("full-width");
-  //   }
-  // });
-
-  //jquery for fixed sidebar and scrollable full-width footer
-  // const $sidebar = $("#sidebar");
-  // const $mainContent = $("#main-content");
-  // const $footer = $("#footer");
-
-  // let observer = new IntersectionObserver(
-  //   function (entries) {
-  //     entries.forEach(function (entry) {
-  //       if (entry.isIntersecting && isFixed) {
-  //         // Footer is visible - allow scrolling
-  //         $sidebar.css("position", "relative");
-  //         $mainContent.css("overflow-y", "auto");
-  //         isFixed = false; // Update state
-  //       } else {
-  //         // Footer is not visible - keep sidebar fixed
-  //         $sidebar.css("position", "fixed");
-  //         $mainContent.css("overflow-y", "hidden");
-  //         isFixed = true; // Update state
-  //       }
-  //     });
-  //   },
-  //   { threshold: 0.1 } // Trigger when 10% of the footer is visible
-  // );
-
-  // observer.observe($footer[0]); // Use [0] to pass the DOM element
+  //sidenavigation animation
+  jQuery(".hamburger-icon").on("click", function () {
+    const chapterTopics = $(".chapter-topics-layout");
+    if (window.innerWidth > 1112) {
+      if (chapterTopics.css("margin-left") === "0px") {
+        chapterTopics.animate({ marginLeft: "-250px" }, 500); // Slide out (hide)
+      } else {
+        chapterTopics.animate({ marginLeft: "0px" }, 500); // Slide out (hide)
+      }
+    } else {
+      console.log("chapterTopics", chapterTopics.css("left"));
+      if (chapterTopics.css("left") !== "0px") {
+        chapterTopics.animate({ left: "0px" }, 500); // Slide out (hide)
+      } else {
+        chapterTopics.animate({ left: "-100%" }, 500); // Slide out (hide)
+      }
+    }
+  });
+  if (window.innerWidth <= 1112) {
+    jQuery(".mobile-close").on("click", function () {
+      jQuery(".chapter-topics-layout").animate({ left: "-100%" }, 500);
+    });
+  }
 
   jQuery(".topic-link").click(function (e) {
     e.preventDefault();
-    // jQuery(this).next().slideToggle();
-    // jQuery(this).toggleClass("active");
-    console.log("hii");
 
     if (jQuery(this).hasClass("active") === false) {
       jQuery(".topic-link").removeClass("active");
@@ -62,41 +80,14 @@ jQuery(document).ready(function () {
     jQuery(".search-popup").removeClass("active");
   });
 
-  $(".hamburger-icon").click(function () {
-    // Assuming you have a toggle button/element with class toggle-nav
-    $(".chapter-topics-layout").toggleClass("open");
-    $(".right-side-wrapper").toggleClass("full-width");
-  });
-
-  if (window.innerWidth <= 1112) {
-    jQuery(".mobile-close").on("click", function () {
-      jQuery(".chapter-topics-layout").removeClass("open");
-    });
-  }
-
-  //accordian jquery
-  $(".pannel-section").click(function (e) {
-    var $pannelSection = $(this);
-    var $link = $pannelSection.find(".updates-links"); // Find the associated link
-    var $target = $($link.data("href")); // Find the associated content
-
-    // Prevent the default anchor behavior if the click was on the link itself.
-    if (
-      $(e.target).hasClass("updates-links") ||
-      $(e.target).closest(".updates-links").length
-    ) {
-      e.preventDefault();
-    }
-
-    if ($pannelSection.hasClass("active")) {
-      $target.slideUp(500, function () {
-        $pannelSection.removeClass("active");
+  jQuery(".updates-links").click(function (e) {
+    jQuery(this).toggleClass("active");
+    // jQuery(this).next().toggleClass("active");
+    jQuery(this)
+      .next()
+      .slideToggle(500, function () {
+        jQuery(this).toggleClass("active");
       });
-    } else {
-      $target.slideDown(500, function () {
-        $pannelSection.addClass("active");
-      });
-    }
   });
 
   //profile popup icon
@@ -124,5 +115,19 @@ jQuery(document).ready(function () {
 
   $(".close-popup").click(function () {
     $(".welcome-popup").fadeOut();
+  });
+
+  //illustration popup
+  $(".pannel-btn").on("click", function () {
+    var target = $(this).attr("id"); // Get the button ID
+    $(".illustration-popup").each(function () {
+      if ($(this).data("href") === target) {
+        $(this).fadeIn();
+      }
+    });
+  });
+
+  $(".illustration-popup-plot, .popup-overlay").on("click", function () {
+    $(".illustration-popup").fadeOut();
   });
 });
