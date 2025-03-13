@@ -1191,15 +1191,6 @@ tr {
   .chapter-top-bar {
     top: 54px;
   }
-  .video-plot {
-    height: 190px;
-  }
-  /* .subject-block {
-    width: calc((100% - 20px) / 2);
-  } */
-  /* .subject-block:nth-child(2n + 2) {
-    margin-right: 0;
-  } */
   .activities-section {
     flex-direction: column;
     padding: 0 3%;
@@ -2351,6 +2342,11 @@ ul {
   }
   .topic-aside {
     padding-top: 0;
+  }
+}
+@media (max-width: 600px) {
+  .video-plot {
+    height: 190px;
   }
 }
 

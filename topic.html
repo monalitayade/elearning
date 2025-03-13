@@ -15,10 +15,9 @@
       type="text/css"
       media="all"
       href="./styles/elcass.css" />
-    <!-- <link
-      href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css"
-      rel="stylesheet" /> -->
+
     <link href="./styles/quill-snow.css" rel="stylesheet" />
+    <link href="https://vjs.zencdn.net/8.16.1/video-js.css" rel="stylesheet" />
   </head>
 
   <body class="body-layout">
@@ -1251,7 +1250,30 @@
                   </button>
                 </div>
               </div>
-              <div class="video-plot">Video will come here</div>
+              <div class="video-plot">
+                <video
+                  id="my-video"
+                  class="video-js"
+                  controls
+                  preload="auto"
+                  width="640"
+                  height="264"
+                  data-setup="{}">
+                  <source
+                    src="./images/VID-20250313-WA0001.mp4"
+                    type="video/mp4" />
+
+                  <p class="vjs-no-js">
+                    To view this video please enable JavaScript, and consider
+                    upgrading to a web browser that
+                    <a
+                      href="https://videojs.com/html5-video-support/"
+                      target="_blank"
+                      >supports HTML5 video</a
+                    >
+                  </p>
+                </video>
+              </div>
             </div>
             <div class="chapter-detail-section">
               <div class="paragraph-title">Course Overview</div>
@@ -1388,14 +1410,15 @@
       </div>
     </div>
     <script src="./js/jquery-3.7.1.min.js"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script> -->
     <script src="./js/quill-snow.js"></script>
     <script src="./js/common-js.js"></script>
-
+    <script src="https://vjs.zencdn.net/8.16.1/video.min.js"></script>
     <script>
       const quill = new Quill("#editor", {
         theme: "snow",
       });
+
+      var player = videojs("my-video");
     </script>
   </body>
 </html>
