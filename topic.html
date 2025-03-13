@@ -1420,7 +1420,313 @@
 
       var player = videojs("my-video");
     </script>
+    <!-- <script>
+      class TextToSpeech {
+        constructor() {
+          this.synth = window.speechSynthesis;
+          this.utterance = null;
+          this.isPaused = false;
+          this.voice = null;
+          this.isSpeaking = false;
+        }
+
+        setVoice(voice) {
+          this.voice = voice;
+        }
+
+        speak(text) {
+          if (!this.synth) return;
+
+          if (this.synth.speaking) {
+            this.synth.cancel();
+          }
+
+          this.utterance = new SpeechSynthesisUtterance(text);
+          if (this.voice) {
+            this.utterance.voice = this.voice;
+          }
+          this.utterance.onend = () => {
+            this.isPaused = false;
+            this.isSpeaking = false;
+            updateButtonUI();
+          };
+          this.utterance.onstart = () => {
+            this.isSpeaking = true;
+            updateButtonUI();
+          };
+
+          this.synth.speak(this.utterance);
+        }
+
+        pause() {
+          if (this.synth.speaking && !this.isPaused) {
+            this.synth.pause();
+            this.isPaused = true;
+            this.isSpeaking = false;
+            updateButtonUI();
+          }
+        }
+
+        stop() {
+          if (this.synth.speaking) {
+            this.synth.cancel();
+            this.isPaused = false;
+            this.isSpeaking = false;
+            updateButtonUI();
+          }
+        }
+
+        getVoices() {
+          if (this.synth) {
+            return this.synth.getVoices();
+          } else {
+            return [];
+          }
+        }
+      }
+
+      const tts = new TextToSpeech();
+
+      function toggleReading() {
+        const textToRead = document.getElementById("textToRead").textContent;
+        const toggleButton = document.getElementById("toggleButton");
+
+        if (tts.isSpeaking) {
+          tts.pause();
+        } else {
+          if (tts.isPaused) {
+            tts.stop();
+          } else {
+            tts.speak(textToRead);
+          }
+        }
+      }
+
+      function updateButtonUI() {
+        const toggleButton = document.getElementById("toggleButton");
+        if (tts.isSpeaking) {
+          toggleButton.classList.add("pause-btn");
+          toggleButton.title = "pause";
+        } else {
+          toggleButton.classList.remove("pause-btn");
+          toggleButton.title = "play";
+        }
+      }
+    </script> -->
+
+    <!-- <script>
+      class TextToSpeech {
+        constructor() {
+          this.synth = window.speechSynthesis;
+          this.utterance = null;
+          this.isPaused = false;
+          this.voice = null;
+          this.isSpeaking = false;
+        }
+
+        setVoice(voice) {
+          this.voice = voice;
+        }
+
+        speak(text) {
+          if (!this.synth) return;
+
+          if (this.synth.speaking) {
+            this.synth.cancel();
+          }
+
+          this.utterance = new SpeechSynthesisUtterance(text);
+          if (this.voice) {
+            this.utterance.voice = this.voice;
+          }
+          this.utterance.onend = () => {
+            this.isPaused = false;
+            this.isSpeaking = false;
+            updateButtonUI();
+          };
+          this.utterance.onstart = () => {
+            this.isSpeaking = true;
+            updateButtonUI();
+          };
+
+          this.synth.speak(this.utterance);
+        }
+
+        pause() {
+          if (this.synth.speaking && !this.isPaused) {
+            this.synth.pause();
+            this.isPaused = true;
+            this.isSpeaking = false;
+            updateButtonUI();
+          }
+        }
+
+        stop() {
+          if (this.synth.speaking) {
+            this.synth.cancel();
+            this.isPaused = false;
+            this.isSpeaking = false;
+            updateButtonUI();
+          }
+        }
+
+        getVoices() {
+          if (this.synth) {
+            return this.synth.getVoices();
+          } else {
+            return [];
+          }
+        }
+      }
+
+      const tts = new TextToSpeech();
+
+      function toggleReading() {
+        const textToRead = document.getElementById("textToRead").textContent;
+        const toggleButton = document.getElementById("toggleButton");
+
+        if (tts.isSpeaking) {
+          tts.pause();
+        } else {
+          if (tts.isPaused) {
+            tts.stop();
+          } else {
+            tts.speak(textToRead);
+          }
+        }
+      }
+
+      function updateButtonUI() {
+        const toggleButton = document.getElementById("toggleButton");
+        if (tts.isSpeaking) {
+          toggleButton.classList.add("pause-btn");
+          toggleButton.title = "pause";
+        } else {
+          toggleButton.classList.remove("pause-btn");
+          toggleButton.title = "play";
+        }
+      }
+
+      // Stop speech on page refresh or close
+      window.addEventListener("beforeunload", function (event) {
+        if (tts.synth.speaking) {
+          tts.stop();
+        }
+      });
+    </script> -->
+
     <script>
+      class TextToSpeech {
+        constructor() {
+          this.synth = window.speechSynthesis;
+          this.utterance = null;
+          this.isPaused = false;
+          this.voice = null;
+          this.isSpeaking = false;
+        }
+
+        setVoice(voice) {
+          this.voice = voice;
+        }
+
+        speak(text) {
+          if (!this.synth) return;
+
+          if (this.synth.speaking) {
+            this.synth.cancel();
+          }
+
+          this.utterance = new SpeechSynthesisUtterance(text);
+          if (this.voice) {
+            this.utterance.voice = this.voice;
+          }
+          this.utterance.onend = () => {
+            this.isPaused = false;
+            this.isSpeaking = false;
+            updateButtonUI();
+          };
+          this.utterance.onstart = () => {
+            this.isSpeaking = true;
+            updateButtonUI();
+          };
+
+          this.synth.speak(this.utterance);
+        }
+
+        pause() {
+          if (this.synth.speaking && !this.isPaused) {
+            this.synth.pause();
+            this.isPaused = true;
+            this.isSpeaking = false;
+            updateButtonUI();
+          }
+        }
+
+        resume() {
+          if (this.isPaused) {
+            this.synth.resume();
+            this.isPaused = false;
+            this.isSpeaking = true;
+            updateButtonUI();
+          }
+        }
+
+        stop() {
+          if (this.synth.speaking) {
+            this.synth.cancel();
+            this.isPaused = false;
+            this.isSpeaking = false;
+            updateButtonUI();
+          }
+        }
+
+        getVoices() {
+          if (this.synth) {
+            return this.synth.getVoices();
+          } else {
+            return [];
+          }
+        }
+      }
+
+      const tts = new TextToSpeech();
+
+      function toggleReading() {
+        const textToRead = document.getElementById("textToRead").textContent;
+        const toggleButton = document.getElementById("toggleButton");
+
+        if (tts.isSpeaking) {
+          tts.pause();
+        } else if (tts.isPaused) {
+          tts.resume();
+        } else {
+          tts.speak(textToRead);
+        }
+      }
+
+      function updateButtonUI() {
+        const toggleButton = document.getElementById("toggleButton");
+        if (tts.isSpeaking) {
+          toggleButton.classList.add("pause-btn");
+          toggleButton.title = "pause";
+        } else if (tts.isPaused) {
+          toggleButton.classList.remove("pause-btn");
+          toggleButton.title = "resume";
+        } else {
+          toggleButton.classList.remove("pause-btn");
+          toggleButton.title = "play";
+        }
+      }
+
+      // Stop speech on page refresh or close
+      window.addEventListener("beforeunload", function (event) {
+        if (tts.synth.speaking) {
+          tts.stop();
+        }
+      });
+    </script>
+
+    <!-- <script>
       let isSpeaking = false;
       let isPaused = false;
       let speech = null;
@@ -1489,6 +1795,6 @@
           isPaused = false;
         }
       }
-    </script>
+    </script> -->
   </body>
 </html>
