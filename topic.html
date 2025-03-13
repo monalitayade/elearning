@@ -1151,12 +1151,16 @@
                 </div>
                 <div class="author-section">
                   <!-- add and remove pause-btn to toggle play pause button -->
-                  <button class="play-btn pause-btn" title="play"></button>
+                  <button
+                    class="play-btn"
+                    title="play"
+                    id="toggleButton"
+                    onclick="toggleReading()"></button>
                 </div>
-                <div class="author-section">
-                  <!-- add and remove unmute-btn to toggle mute unmute button -->
+                <!-- <div class="author-section">
+                 
                   <button class="mute-btn unmute-btn" title="mute"></button>
-                </div>
+                </div> -->
                 <div class="author-detail">
                   <!-- <div class="author-name">Rate Us:</div> -->
                   <div class="rating" title="rate us">
@@ -1275,37 +1279,33 @@
                 </video>
               </div>
             </div>
-            <div class="chapter-detail-section">
+            <div class="chapter-detail-section" id="textToRead">
               <div class="paragraph-title">Course Overview</div>
               <p class="paragraph">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry’s standard dummy tn
-                an unknodard dummy text ever since the 1500s, when an unknowwn
-                printer took a galley of type and scrambled it to make a type
-                shas been the industry’s standard dummy text ever since the
-                1500s, look like readable English when an un loream ipsum.
+                Photosynthesis is the process where plants, algae, and some
+                bacteria convert light energy into chemical energy (sugars)
+                using carbon dioxide and water, releasing oxygen as a byproduct.
               </p>
-              <div class="ul-title">Contents</div>
+              <div class="ul-title">The process:</div>
               <ul>
-                <li>Lorem Ipsum</li>
-                <li>Lorem Ipsum</li>
-                <li>Lorem Ipsum</li>
+                <li>
+                  Light-dependent reactions: Light energy is absorbed by
+                  chlorophyll and used to split water molecules, releasing
+                  oxygen and generating energy carriers (ATP and NADPH).
+                </li>
+                <li>
+                  Light-independent reactions (Calvin cycle): The energy
+                  carriers from the light-dependent reactions are used to
+                  convert carbon dioxide into sugars.
+                </li>
               </ul>
               <div class="paragraph-title">Course Overview</div>
               <p class="paragraph">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry’s standard dummy tn
-                an unknodard dummy text ever since the 1500s, when an unknowwn
-                printer took a galley of type and scrambled it to make a type
-                shas been the industry’s standard dummy text ever since the
-                1500s, look like readable English when an un loream ipsum.
+                What it is: Photosynthesis is a vital biological process that
+                sustains life on Earth by converting light energy (typically
+                from sunlight) into chemical energy in the form of sugars (like
+                glucose).
               </p>
-              <div class="ul-title">Contents</div>
-              <ul>
-                <li>Lorem Ipsum</li>
-                <li>Lorem Ipsum</li>
-                <li>Lorem Ipsum</li>
-              </ul>
             </div>
           </div>
         </section>
@@ -1419,6 +1419,59 @@
       });
 
       var player = videojs("my-video");
+    </script>
+    <script>
+      let isSpeaking = false;
+      let isPaused = false;
+      let speech;
+
+      function toggleReading() {
+        let button = document.getElementById("toggleButton");
+        let textElement = document.getElementById("textToRead");
+
+        if (!textElement) {
+          console.error("Error: #textToRead not found.");
+          return;
+        }
+
+        let text = textElement.innerText.trim();
+        console.log("textElement:", text);
+
+        if (text.length === 0) {
+          alert("No text available to read.");
+          return;
+        }
+
+        if (!isSpeaking || speech === null) {
+          console.log("textElement 1446:", text);
+
+          speech = new SpeechSynthesisUtterance(text); // Always reinitialize speech
+          speech.onend = function () {
+            isSpeaking = false;
+            isPaused = false;
+            button.classList.remove("pause-btn");
+            //button.classList.add("play-btn");
+          };
+
+          window.speechSynthesis.cancel(); // Stop any existing speech
+          window.speechSynthesis.speak(speech);
+          //button.classList.remove("play-btn");
+          button.classList.add("pause-btn");
+
+          isSpeaking = true;
+          isPaused = false;
+        } else if (!isPaused) {
+          window.speechSynthesis.pause();
+          button.classList.remove("pause-btn");
+          //button.classList.add("play-btn");
+          isPaused = true;
+        } else {
+          window.speechSynthesis.resume();
+          //button.classList.remove("play-btn");
+          button.classList.add("pause-btn");
+          isPaused = false;
+        }
+      }
     </script>
   </body>
 </html>
