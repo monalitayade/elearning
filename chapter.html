@@ -642,21 +642,59 @@
      <script src="./js/swiper.js"></script>
     <script src="./js/aos.js"></script>
     
-    <script>
-      AOS.init({
-            selector: 'header[data-aos]',
-            once: true,  // Change to false if you want to repeat animation
-            offset: 200,
-            duration: 600
+    <script>      
+      jQuery(document).ready(function () {
+        //chapter subject slider
+        var swiper = new Swiper(".subject-grid-wrapper", {
+          slidesPerView: 7,
+          spaceBetween: 3,
+          loop: false,
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+          },
+          breakpoints: {
+            1336: {
+              slidesPerView: 8,
+              spaceBetween: 50,
+            },
+            1024: {
+              slidesPerView: 5,
+              spaceBetween: 50,
+            },
+            768: {
+              slidesPerView: 4,
+              spaceBetween: 40,
+            },
+            640: {
+              slidesPerView: 2.3,
+              spaceBetween: 15,
+            },
+            0: {
+              slidesPerView: 2,
+              spaceBetween: 15,
+            },
+          },
         });
-      //animation script
-      AOS.init({
-        duration: 800,
-        easing: 'ease-in-out',
-        once: true,
-        mirror: true, // re-animate on scroll back up
-      });
 
+        AOS.init({
+              selector: 'header[data-aos]',
+              once: true,  // Change to false if you want to repeat animation
+              offset: 200,
+              duration: 600
+          });
+        //animation script
+        AOS.init({
+          duration: 800,
+          easing: 'ease-in-out',
+          once: true,
+          mirror: true, // re-animate on scroll back up
+        });
+      });      
     </script>
     
   </body>

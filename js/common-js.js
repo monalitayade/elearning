@@ -1,47 +1,12 @@
 jQuery(document).ready(function () {
-  //chapter subject slider
-  var swiper = new Swiper(".subject-grid-wrapper", {
-    slidesPerView: 7,
-    spaceBetween: 3,
-    loop: false,
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    breakpoints: {
-      1336: {
-        slidesPerView: 8,
-        spaceBetween: 50,
-      },
-      1024: {
-        slidesPerView: 5,
-        spaceBetween: 50,
-      },
-      768: {
-        slidesPerView: 4,
-        spaceBetween: 40,
-      },
-      640: {
-        slidesPerView: 2.3,
-        spaceBetween: 15,
-      },
-      0: {
-        slidesPerView: 2,
-        spaceBetween: 15,
-      },
-    },
-  });
-
   //sidenavigation animation
   jQuery(".hamburger-icon").on("click", function () {
+    console.log("clciked");
+
     const chapterTopics = $(".chapter-topics-layout");
     if (window.innerWidth > 1112) {
       if (chapterTopics.css("margin-left") === "0px") {
-        chapterTopics.animate({ marginLeft: "-250px" }, 500); // Slide out (hide)
+        chapterTopics.animate({ marginLeft: "-300px" }, 500); // Slide out (hide)
       } else {
         chapterTopics.animate({ marginLeft: "0px" }, 500); // Slide out (hide)
       }
@@ -60,14 +25,6 @@ jQuery(document).ready(function () {
     });
   }
 
-  jQuery(".topic-link").click(function (e) {
-    e.preventDefault();
-
-    if (jQuery(this).hasClass("active") === false) {
-      jQuery(".topic-link").removeClass("active");
-      jQuery(this).addClass("active");
-    }
-  });
   jQuery(".mobile-topic-close").click(function () {
     jQuery(".chapter-topics-layout").animate({ left: "-100%" }, 500);
   });
@@ -91,15 +48,37 @@ jQuery(document).ready(function () {
   });
 
   //profile popup icon
-  jQuery(".avtar-plot,.profile-name,.arrow").on("click", function () {
+  jQuery(".avtar-plot, .profile-name, .arrow").on("click", function (e) {
+    e.stopPropagation(); // Prevents click from bubbling to document
     jQuery(".profile-popup").toggleClass("show-profile-items");
     jQuery(".notification-popup").removeClass("show-noti-items");
   });
 
+  // Click outside to hide the profile popup
+  jQuery(document).on("click", function (e) {
+    if (
+      !jQuery(e.target).closest(
+        ".profile-popup, .avtar-plot, .profile-name, .arrow"
+      ).length
+    ) {
+      jQuery(".profile-popup").removeClass("show-profile-items");
+    }
+  });
+
   //notification popup icon
-  jQuery(".notification-btn").on("click", function () {
+  jQuery(".notification-btn").on("click", function (e) {
+    e.stopPropagation(); // Prevents event from reaching document click handler
     jQuery(".notification-popup").toggleClass("show-noti-items");
-    jQuery(".profile-popup").removeClass("show-profile-items");
+    jQuery(".profile-popup").removeClass("show-profile-items"); // Hide profile popup when opening notifications
+  });
+
+  // Click outside to hide the notification popup
+  jQuery(document).on("click", function (e) {
+    if (
+      !jQuery(e.target).closest(".notification-popup, .notification-btn").length
+    ) {
+      jQuery(".notification-popup").removeClass("show-noti-items");
+    }
   });
 
   if (window.innerWidth <= 1112) {
@@ -127,7 +106,45 @@ jQuery(document).ready(function () {
     });
   });
 
-  $(".illustration-popup-plot, .popup-overlay").on("click", function () {
-    $(".illustration-popup").fadeOut();
+  $(".illustration-popup-plot .popup-close, .popup-overlay").on(
+    "click",
+    function () {
+      $(".illustration-popup").fadeOut();
+    }
+  );
+
+  //add note popup
+
+  jQuery(".add-note").on("click", function () {
+    jQuery(".illustration-popup").fadeIn();
   });
+
+  // Close the popup when clicking the close button
+  jQuery(".popup-close").on("click", function () {
+    jQuery(".illustration-popup").fadeOut();
+  });
+
+  // Prevent the popup from closing when clicking inside it
+  jQuery(".illustration-popup").on("click", function (event) {
+    event.stopPropagation();
+  });
+
+  //topic page side bar jquery
+  jQuery(".chapter-topics-layout.topic-aside .topic-link").click(function (e) {
+    e.preventDefault();
+    jQuery(this).next().slideToggle();
+    jQuery(this).toggleClass("active");
+  });
+
+  // Add active class only for topic links **not** inside `.chapter-topics-layout.topic-aside`
+  jQuery(".topic-link")
+    .not(".chapter-topics-layout.topic-aside .topic-link")
+    .click(function (e) {
+      e.preventDefault();
+
+      if (!jQuery(this).hasClass("active")) {
+        jQuery(".topic-link").removeClass("active");
+        jQuery(this).addClass("active");
+      }
+    });
 });
