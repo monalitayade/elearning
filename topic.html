@@ -1423,7 +1423,7 @@
     <script>
       let isSpeaking = false;
       let isPaused = false;
-      let speech;
+      let speech = null;
 
       function toggleReading() {
         let button = document.getElementById("toggleButton");
@@ -1435,17 +1435,20 @@
         }
 
         let text = textElement.innerText.trim();
-        console.log("textElement:", text);
 
         if (text.length === 0) {
           alert("No text available to read.");
           return;
         }
 
-        if (!isSpeaking || speech === null) {
-          console.log("textElement 1446:", text);
+        // Detect if it's a mobile device
+        let isMobile = /iPhone|iPad|Android/i.test(navigator.userAgent);
 
-          speech = new SpeechSynthesisUtterance(text); // Always reinitialize speech
+        // 🟢 Always create a new speech instance with the latest text
+        if (!isSpeaking || speech === null) {
+          speech = new SpeechSynthesisUtterance(text);
+
+          // Reset button when speech ends
           speech.onend = function () {
             isSpeaking = false;
             isPaused = false;
@@ -1455,18 +1458,32 @@
 
           window.speechSynthesis.cancel(); // Stop any existing speech
           window.speechSynthesis.speak(speech);
+
           //button.classList.remove("play-btn");
           button.classList.add("pause-btn");
 
           isSpeaking = true;
           isPaused = false;
-        } else if (!isPaused) {
+        }
+        // 🟠 If speaking and not paused, pause speech (Desktop only)
+        else if (!isPaused && !isMobile) {
           window.speechSynthesis.pause();
           button.classList.remove("pause-btn");
           //button.classList.add("play-btn");
           isPaused = true;
-        } else {
-          window.speechSynthesis.resume();
+        }
+        // 🟢 If paused, resume speech (Desktop) or restart (Mobile)
+        else {
+          if (isMobile) {
+            // Restart from the beginning on mobile
+            window.speechSynthesis.cancel();
+            speech = new SpeechSynthesisUtterance(text);
+            window.speechSynthesis.speak(speech);
+          } else {
+            // Resume normally on desktop
+            window.speechSynthesis.resume();
+          }
+
           //button.classList.remove("play-btn");
           button.classList.add("pause-btn");
           isPaused = false;
