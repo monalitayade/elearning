@@ -2376,6 +2376,9 @@ ul {
 #quiz-page .chapter-feature-section {
 	padding: 0;
 }
+#quiz-page .chapter-topics-layout.open {
+    overflow-x: hidden;
+}
 .quiz-header {
     font-family: "poppins", sans-serif;
     font-size: 16px;
@@ -2455,6 +2458,9 @@ ul {
 	padding-bottom: 16px;
 	align-items: flex-start;
 	border-bottom: 1px solid var(--text-color);
+}
+.question-hamburger-wrapper .topic-item:last-child a {
+    border-bottom: 0;
 }
 #quiz-page .question-hamburger-wrapper .topic-item a.active {
 	background-color: transparent;
