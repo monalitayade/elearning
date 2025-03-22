@@ -147,4 +147,118 @@ jQuery(document).ready(function () {
         jQuery(this).addClass("active");
       }
     });
+	
+	//Quiz page timer js
+	let timeLeft = 3600; // 60 minutes in seconds
+
+            function updateTimer() {
+                let minutes = Math.floor(timeLeft / 60);
+                let seconds = timeLeft % 60;
+
+                // Format time as MM:SS
+                $("#timer").text(`${minutes}:${seconds.toString().padStart(2, '0')}`);
+
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    $("#timer").text("Time's up!");
+                } else {
+                    timeLeft--;
+                }
+            }
+
+            // Start the timer on page load
+            let timerInterval = setInterval(updateTimer, 1000);
+			
+	//Drag and drop answers js
+	function makeDraggable() {
+                $(".answer-box").draggable({
+                    revert: "invalid",
+                    helper: "clone"
+                });
+            }
+
+            makeDraggable();
+
+            $(".drag-answer-box").droppable({
+                accept: ".answer-box",
+                drop: function(event, ui) {
+                    let existingAnswer = $(this).children(".answer-box");
+
+                    if (existingAnswer.length) {
+                        // Swap answers
+                        let originalParent = ui.draggable.parent();
+                        existingAnswer.appendTo(originalParent);
+                    }
+
+                    $(this).empty().append(ui.draggable.clone());
+                    ui.draggable.remove();
+                    makeDraggable();
+                }
+            });
+
+            /*$("#check").click(function() {
+                $(".drag-answer-box").each(function() {
+                    let correctAnswer = $(this).data("answer");
+                    let userAnswer = $(this).children(".answer-box").data("answer");
+
+                    if (correctAnswer === userAnswer) {
+                        $(this).addClass("correct").removeClass("wrong");
+                    } else {
+                        $(this).addClass("wrong").removeClass("correct");
+                    }
+                });
+            });*/
+			
+			
+			//
+			let currentQuestion = 1;
+            const totalQuestions = $(".question").length;
+
+            $("#total-questions").text(totalQuestions);
+
+            function updateQuestion() {
+                $(".question").removeClass("active");
+                $('.question[data-index="' + currentQuestion + '"]').addClass("active");
+                $("#current-question").text(currentQuestion);
+                
+                $(".prev").prop("disabled", currentQuestion === 1);
+				$(".next").prop("disabled", currentQuestion === totalQuestions);
+                /*$(".next").text(currentQuestion === totalQuestions ? "Submit" : "Next");*/
+            }
+
+            $(".next").click(function () {
+                if (currentQuestion < totalQuestions) {
+                    currentQuestion++;
+                    updateQuestion();
+                } 
+            });
+
+            $(".prev").click(function () {
+                if (currentQuestion > 1) {
+                    currentQuestion--;
+                    updateQuestion();
+                }
+            });
+			
+			$('.options-wrapper input[type=radio]').on('change', function() {
+            let allAnswered = $('.options-wrapper input[type=radio]:checked').length === $('.options-wrapper input[type=radio]').length / 3;
+            if (allAnswered) {
+                $('#submit-btn').prop('disabled', false).addClass('enabled');
+            }
+			
+			$('#submit-btn').off('click').on('click', function() {
+				alert('Quiz submitted successfully!');
+			});
+        });
+		
+		$('.question-hamburger-wrapper li').on('click', function() {
+            let target = $(this).data('target'); // Get the target question ID
+
+			$('.question-hamburger-wrapper li').removeClass('active');
+            $(this).addClass('active');
+			
+            $('.question').removeClass('active'); // Hide all questions
+            $('#' + target).addClass('active'); // Show selected question
+        });
+		
 });
