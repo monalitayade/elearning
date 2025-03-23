@@ -2621,6 +2621,8 @@ ul {
 }
 /* Checked state */
 .checkbox-box input:checked + span::before {
+	-webkit-appearance: none;
+	appearance: none;
 	background: var(--primary-color);
 	border-color: var(--primary-color);
 	box-shadow: 0px 0px 8px rgba(0, 123, 255, 0.5);
@@ -2638,7 +2640,7 @@ ul {
 @media (max-width: 600px) {
 	.quiz-header {
 		width: 100%;
-		border-bottom: 0.5px solid #ccc;
+		border-bottom: 0.5px solid var(--gray-border);
 		padding: 10px 0 10px 0;
 		margin: 0;
 		display: flex;
