@@ -169,32 +169,98 @@ jQuery(document).ready(function () {
             // Start the timer on page load
             let timerInterval = setInterval(updateTimer, 1000);
 			
-	//Drag and drop answers js
-	function makeDraggable() {
-                $(".answer-box").draggable({
-                    revert: "invalid",
-                    helper: "clone"
-                });
-            }
+	/*function makeDraggable() {
+		$(".answer-box").draggable({
+			revert: "invalid",
+			helper: "clone"
+		});
+	}
 
-            makeDraggable();
+	makeDraggable();
 
-            $(".drag-answer-box").droppable({
-                accept: ".answer-box",
-                drop: function(event, ui) {
-                    let existingAnswer = $(this).children(".answer-box");
+	$(".drag-answer-box").droppable({
+		accept: ".answer-box",
+		drop: function(event, ui) {
+			let draggedAnswer = ui.draggable;
+			let targetBox = $(this);
 
-                    if (existingAnswer.length) {
-                        // Swap answers
-                        let originalParent = ui.draggable.parent();
-                        existingAnswer.appendTo(originalParent);
-                    }
+			let existingAnswer = targetBox.children(".answer-box");
 
-                    $(this).empty().append(ui.draggable.clone());
-                    ui.draggable.remove();
-                    makeDraggable();
-                }
-            });
+			if (existingAnswer.length) {
+				// Swap the existing answer back to its original position
+				let originalParent = draggedAnswer.parent();
+				existingAnswer.detach().appendTo(originalParent);
+			}
+
+			// Move the dragged answer into the new box
+			draggedAnswer.detach().appendTo(targetBox);
+
+			makeDraggable(); // Re-enable dragging after swap
+		}
+	});*/
+	
+	/*function makeDraggable() {
+    $(".answer-box").draggable({
+        revert: "invalid",
+        helper: "clone"
+    });
+}
+
+makeDraggable();
+
+$(".drag-answer-box").droppable({
+    accept: ".answer-box",
+    drop: function(event, ui) {
+        let draggedAnswer = ui.draggable;
+        let targetBox = $(this);
+
+        let existingAnswer = targetBox.children(".answer-box");
+
+        if (existingAnswer.length) {
+            // Swap existing answer with dragged one
+            let originalParent = draggedAnswer.parent();
+            existingAnswer.detach().appendTo(originalParent); // Move existing answer back
+        }
+
+        // Move the dragged answer into the new box
+        //draggedAnswer.detach().css({ position: "relative", top: "0px", left: "0px" }).appendTo(targetBox);
+		
+		draggedAnswer.detach().css({ width: "auto" }).appendTo(targetBox);
+
+        makeDraggable(); // Re-enable dragging for swapped answers
+    }
+});*/
+
+function makeDraggable() {
+    $(".answer-box").draggable({
+        revert: "invalid",
+        helper: "clone"
+    });
+}
+
+makeDraggable();
+
+$(".drag-answer-box").droppable({
+    accept: ".answer-box",
+    drop: function(event, ui) {
+        let draggedAnswer = ui.draggable;
+        let targetBox = $(this);
+
+        let existingAnswer = targetBox.children(".answer-box");
+
+        if (existingAnswer.length) {
+            // Swap existing answer back to its original place
+            let originalParent = draggedAnswer.parent();
+            existingAnswer.detach().appendTo(originalParent);
+        }
+
+        // Fully replace the `drag-answer-box` content with the new answer
+        targetBox.empty().append(draggedAnswer.detach().css({ width: "200px" }));
+
+        makeDraggable(); // Ensure draggable behavior remains after dropping
+    }
+});
+
 
             /*$("#check").click(function() {
                 $(".drag-answer-box").each(function() {
