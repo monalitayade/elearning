@@ -124,6 +124,18 @@ jQuery(document).ready(function () {
     jQuery(".illustration-popup").fadeOut();
   });
 
+  //bookmarked jquery
+  jQuery(".bookmark").on("click", function () {
+    let svg = $(this).find("svg");
+
+    // Toggle the fill color between white and yellow
+    let isBookmarked = svg.attr("data-bookmarked") === "true";
+
+    svg
+      .attr("fill", isBookmarked ? "none" : "#ff1493") // Change fill color
+      .attr("data-bookmarked", !isBookmarked); // Toggle state
+  });
+
   // Prevent the popup from closing when clicking inside it
   jQuery(".illustration-popup").on("click", function (event) {
     event.stopPropagation();
@@ -147,60 +159,72 @@ jQuery(document).ready(function () {
         jQuery(this).addClass("active");
       }
     });
-	
-	//Quiz page timer js
-	let timeLeft = 3600; // 60 minutes in seconds
 
-            function updateTimer() {
-                let minutes = Math.floor(timeLeft / 60);
-                let seconds = timeLeft % 60;
+  //show quiz popup
+  jQuery(".pannel-link.quiz").on("click", function (e) {
+    e.stopPropagation();
+    jQuery(".quiz-popup-modal").fadeIn();
+  });
 
-                // Format time as MM:SS
-                $("#timer").text(`${minutes}:${seconds.toString().padStart(2, '0')}`);
-
-                if (timeLeft <= 0) {
-                    clearInterval(timerInterval);
-                    $("#timer").text("Time's up!");
-                } else {
-                    timeLeft--;
-                }
-            }
-
-            // Start the timer on page load
-            let timerInterval = setInterval(updateTimer, 1000);
-
-function makeDraggable() {
-    $(".answer-box").draggable({
-        revert: "invalid",
-        helper: "clone"
-    });
-}
-
-makeDraggable();
-
-$(".drag-answer-box").droppable({
-    accept: ".answer-box",
-    drop: function(event, ui) {
-        let draggedAnswer = ui.draggable;
-        let targetBox = $(this);
-
-        let existingAnswer = targetBox.children(".answer-box");
-
-        if (existingAnswer.length) {
-            // Swap existing answer back to its original place
-            let originalParent = draggedAnswer.parent();
-            existingAnswer.detach().appendTo(originalParent);
-        }
-
-        // Fully replace the `drag-answer-box` content with the new answer
-        targetBox.empty().append(draggedAnswer.detach().css({ width: "150px" }));
-
-        makeDraggable(); // Ensure draggable behavior remains after dropping
+  jQuery(".quiz-popup-modal .popup-overlay,.quiz-popup-title .close-popup").on(
+    "click",
+    function (e) {
+      //e.stopPropagation();
+      jQuery(".quiz-popup-modal").fadeOut();
     }
-});
+  );
+  //Quiz page timer js
+  let timeLeft = 3600; // 60 minutes in seconds
 
+  function updateTimer() {
+    let minutes = Math.floor(timeLeft / 60);
+    let seconds = timeLeft % 60;
 
-            /*$("#check").click(function() {
+    // Format time as MM:SS
+    $("#timer").text(`${minutes}:${seconds.toString().padStart(2, "0")}`);
+
+    if (timeLeft <= 0) {
+      clearInterval(timerInterval);
+      $("#timer").text("Time's up!");
+    } else {
+      timeLeft--;
+    }
+  }
+
+  // Start the timer on page load
+  let timerInterval = setInterval(updateTimer, 1000);
+
+  function makeDraggable() {
+    $(".answer-box").draggable({
+      revert: "invalid",
+      helper: "clone",
+    });
+  }
+
+  makeDraggable();
+
+  $(".drag-answer-box").droppable({
+    accept: ".answer-box",
+    drop: function (event, ui) {
+      let draggedAnswer = ui.draggable;
+      let targetBox = $(this);
+
+      let existingAnswer = targetBox.children(".answer-box");
+
+      if (existingAnswer.length) {
+        // Swap existing answer back to its original place
+        let originalParent = draggedAnswer.parent();
+        existingAnswer.detach().appendTo(originalParent);
+      }
+
+      // Fully replace the `drag-answer-box` content with the new answer
+      targetBox.empty().append(draggedAnswer.detach().css({ width: "150px" }));
+
+      makeDraggable(); // Ensure draggable behavior remains after dropping
+    },
+  });
+
+  /*$("#check").click(function() {
                 $(".drag-answer-box").each(function() {
                     let correctAnswer = $(this).data("answer");
                     let userAnswer = $(this).children(".answer-box").data("answer");
@@ -212,57 +236,59 @@ $(".drag-answer-box").droppable({
                     }
                 });
             });*/
-			
-			
-			//
-			let currentQuestion = 1;
-            const totalQuestions = $(".question").length;
 
-            $("#total-questions").text(totalQuestions);
+  //
+  let currentQuestion = 1;
+  const totalQuestions = $(".question").length;
 
-            function updateQuestion() {
-                $(".question").removeClass("active");
-                $('.question[data-index="' + currentQuestion + '"]').addClass("active");
-                $("#current-question").text(currentQuestion);
-                
-                $(".prev").prop("disabled", currentQuestion === 1);
-				$(".next").prop("disabled", currentQuestion === totalQuestions);
-                /*$(".next").text(currentQuestion === totalQuestions ? "Submit" : "Next");*/
-            }
+  $("#total-questions").text(totalQuestions);
 
-            $(".next").click(function () {
-                if (currentQuestion < totalQuestions) {
-                    currentQuestion++;
-                    updateQuestion();
-                } 
-            });
+  function updateQuestion() {
+    $(".question").removeClass("active");
+    $('.question[data-index="' + currentQuestion + '"]').addClass("active");
+    $("#current-question").text(currentQuestion);
 
-            $(".prev").click(function () {
-                if (currentQuestion > 1) {
-                    currentQuestion--;
-                    updateQuestion();
-                }
-            });
-			
-			$('.options-wrapper input[type=radio]').on('change', function() {
-            let allAnswered = $('.options-wrapper input[type=radio]:checked').length === $('.options-wrapper input[type=radio]').length / 3;
-            if (allAnswered) {
-                $('#submit-btn').prop('disabled', false).addClass('enabled');
-            }
-			
-			$('#submit-btn').off('click').on('click', function() {
-				alert('Quiz submitted successfully!');
-			});
-        });
-		
-		$('.question-hamburger-wrapper li').on('click', function() {
-            let target = $(this).data('target'); // Get the target question ID
+    $(".prev").prop("disabled", currentQuestion === 1);
+    $(".next").prop("disabled", currentQuestion === totalQuestions);
+    /*$(".next").text(currentQuestion === totalQuestions ? "Submit" : "Next");*/
+  }
 
-			$('.question-hamburger-wrapper li').removeClass('active');
-            $(this).addClass('active');
-			
-            $('.question').removeClass('active'); // Hide all questions
-            $('#' + target).addClass('active'); // Show selected question
-        });
-		
+  $(".next").click(function () {
+    if (currentQuestion < totalQuestions) {
+      currentQuestion++;
+      updateQuestion();
+    }
+  });
+
+  $(".prev").click(function () {
+    if (currentQuestion > 1) {
+      currentQuestion--;
+      updateQuestion();
+    }
+  });
+
+  $(".options-wrapper input[type=radio]").on("change", function () {
+    let allAnswered =
+      $(".options-wrapper input[type=radio]:checked").length ===
+      $(".options-wrapper input[type=radio]").length / 3;
+    if (allAnswered) {
+      $("#submit-btn").prop("disabled", false).addClass("enabled");
+    }
+
+    $("#submit-btn")
+      .off("click")
+      .on("click", function () {
+        alert("Quiz submitted successfully!");
+      });
+  });
+
+  $(".question-hamburger-wrapper li").on("click", function () {
+    let target = $(this).data("target"); // Get the target question ID
+
+    $(".question-hamburger-wrapper li").removeClass("active");
+    $(this).addClass("active");
+
+    $(".question").removeClass("active"); // Hide all questions
+    $("#" + target).addClass("active"); // Show selected question
+  });
 });
