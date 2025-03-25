@@ -1760,6 +1760,7 @@ tr {
 .pannel-button-wrapper {
   width: 100%;
   display: flex;
+  justify-content: space-around;
   gap: 10px;
   margin: 20px 0;
 }
@@ -1784,7 +1785,7 @@ tr {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 .pannel-button-wrapper svg {
-  width: 30px;
+  width: 20px;
 }
 .pannel-links-wrapper {
   width: auto;
@@ -2020,7 +2021,7 @@ a.sub-topic-link {
   color: var(--text-color);
   background-color: var(--light-pink);
   border-radius: 4px;
-  padding: 20px;
+  padding: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -2030,6 +2031,12 @@ a.sub-topic-link {
 }
 .full-width {
   width: 100%;
+}
+.desc-title {
+  font-size: 14px;
+}
+.desc-para {
+  font-size: 12px;
 }
 .chapter-layout,
 .topic-layout {
