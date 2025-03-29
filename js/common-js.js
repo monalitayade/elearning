@@ -291,4 +291,119 @@ jQuery(document).ready(function () {
     $(".question").removeClass("active"); // Hide all questions
     $("#" + target).addClass("active"); // Show selected question
   });
+
+  //Homepage vertical tabs
+  jQuery(".tab-link").click(function(event) {
+    event.preventDefault();
+
+    // Remove active class from all tabs and content
+    $(".tab-link").removeClass("active");
+    $(".tab-content").hide();
+
+    // Add active class to clicked tab
+    $(this).addClass("active");
+
+    // Show corresponding content
+    var tabId = $(this).data("tab");
+    $("#" + tabId).show();
+  });
+
+  var owl = jQuery(".owl-carousel");
+
+  owl.owlCarousel({
+    loop: true,
+    margin: 10,
+    nav: true,
+    autoplay: true,
+    autoplayTimeout: 3000,
+    autoplayHoverPause: true,
+    responsive:{
+        0:{ items:1 },
+        600:{ items:1 },
+        1000:{ items:1 }
+},
+    onTranslate: function(event) {
+        // Delay typing animation slightly to allow slide transition
+        setTimeout(function() {
+            let activeSlide = jQuery(event.target).find(".owl-item.active .banner-heading");
+            startTyping(activeSlide, 100);
+        }, 300); 
+    }
+  });
+
+  // Function to apply typing effect
+  function startTyping(element, speed) {
+    if (!element.length) return; // Exit if no element found
+
+    let text = element.attr("data-text"); // Get original text from data attribute
+    element.html(""); // Clear text
+    let i = 0;
+
+    function typeWriter() {
+        if (i < text.length) {
+            element.append(text.charAt(i));
+            i++;
+            setTimeout(typeWriter, speed);
+        } else {
+            element.siblings(".cursor").fadeOut(); // Hide cursor after typing
+        }
+    }
+    typeWriter();
+  }
+
+  // Store text in data attribute and clear initial text
+  jQuery(".banner-heading").each(function() {
+    jQuery(this).attr("data-text", jQuery(this).text()).html(""); // Save text and clear
+  });
+
+  // Start typing effect for the first slide after a slight delay
+  setTimeout(() => {
+    startTyping(jQuery(".owl-item.active .banner-heading"), 100);
+  }, 500); // Ensures Owl Carousel loads before starting typing effect
+
+  //Homepage Logo slider
+  var swiper = new Swiper(".logo-slider-container .swiper", {
+    slidesPerView: 7,
+    spaceBetween: 3,
+    loop: false,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    breakpoints: {
+      1336: {
+        slidesPerView: 8,
+        spaceBetween: 50,
+      },
+      1024: {
+        slidesPerView: 5,
+        spaceBetween: 50,
+      },
+      768: {
+        slidesPerView: 4,
+        spaceBetween: 40,
+      },
+      640: {
+        slidesPerView: 2.3,
+        spaceBetween: 15,
+      },
+      0: {
+        slidesPerView: 2,
+        spaceBetween: 15,
+      },
+    },
+  });
+
+  //Header hamburger in mobile-close
+  jQuery(".hamburger").click(function(){
+    jQuery(".side-menu").addClass("active");
+  });
+
+  jQuery(".close-btn").click(function(){
+    jQuery(".side-menu").removeClass("active");
+  });
 });

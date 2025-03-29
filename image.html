@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Vertical Tabs & Accordion</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        
+		<style>
+/* General Styling */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Navbar (Desktop) */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #333;
+    padding: 15px 20px;
+    color: white;
+}
+
+/* Logo */
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Navigation Links (Desktop) */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #007BFF;
+}
+
+/* Hamburger Icon (Hidden on Desktop) */
+.hamburger {
+    font-size: 30px;
+    cursor: pointer;
+    display: none;
+}
+
+/* Sidebar Menu (Mobile) */
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Initially Hidden */
+    width: 250px;
+    height: 100%;
+    background: #222;
+    padding-top: 60px;
+    transition: 0.4s;
+}
+
+.side-menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.side-menu ul li {
+    padding: 15px;
+    text-align: center;
+}
+
+.side-menu ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    display: block;
+    transition: 0.3s;
+}
+
+.side-menu ul li a:hover {
+    background: #444;
+}
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+}
+
+/* Sidebar Open */
+.side-menu.active {
+    left: 0; /* Slide in from left */
+}
+
+/* Mobile Styles */
+@media screen and (max-width: 768px) {
+    .nav-links {
+        display: none; /* Hide horizontal menu on mobile */
+    }
+
+    .hamburger {
+        display: block; /* Show hamburger menu */
+    }
+}
+
+		</style>
+</head>
+<body>
+
+   <nav class="navbar">
+        <div class="logo">MyLogo</div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <div class="hamburger">&#9776;</div>
+    </nav>
+
+    <!-- Sidebar Menu (Mobile) -->
+    <div class="side-menu">
+        <span class="close-btn">&times;</span>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </div>
+
+<script>
+$(document).ready(function(){
+    $(".hamburger").click(function(){
+        $(".side-menu").addClass("active");
+    });
+
+    $(".close-btn").click(function(){
+        $(".side-menu").removeClass("active");
+    });
+});
+
+
+</script>
+</body>
+</html>
