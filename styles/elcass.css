@@ -3175,9 +3175,9 @@ a {
 .logo-slider-container .swiper-horizontal .swiper-pagination {
     display: none;
 }
-.logo-slider-container .swiper-wrapper {
+/*.logo-slider-container .swiper-wrapper {
 	overflow: hidden;
-}
+}*/
 
 /* School Onboarding CSS */
 .school-onboaring-container .journey-border-box {
@@ -3401,8 +3401,13 @@ input, textarea {
 	.tile-desc {
 		overflow-y: scroll;
 	}
+	.journey-svg-icon {
+		width: 45px;
+		height: 45px;
+	}
 	.journey-desc-box {
 		flex: 1;
+		font-size: 14px;
 	}
 	.eclass-video-container .video-desc-box {
 		order: 2;
