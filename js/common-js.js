@@ -406,6 +406,19 @@ jQuery(document).ready(function () {
   jQuery(".close-btn").click(function(){
     jQuery(".side-menu").removeClass("active");
   });
+  
+  if (window.innerWidth <= 768) {
+	$(".dropbtn").click(function(){
+		$(".dropdown-content").toggle();
+	});
+
+	// Close dropdown when clicking outside
+	$(document).click(function(e) {
+		if (!$(e.target).closest(".dropdown").length) {
+			$(".dropdown-content").hide();
+		}
+	});
+  }
 });
 
 	var ctx = document.getElementById("myPieChart1").getContext("2d");

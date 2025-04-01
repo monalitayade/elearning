@@ -26,7 +26,16 @@
 			<div class="logo">MyLogo</div>
 			<ul class="nav-links">
 				<li><a href="#">Home</a></li>
-				<li><a href="#">ECLASS</a></li>
+				<li>
+					<div class="dropdown">
+						<button class="dropbtn">ELCAAS</button>
+						<div class="dropdown-content">
+						  <a href="#">Link 1</a>
+						  <a href="#">Link 2</a>
+						  <a href="#">Link 3</a>
+						</div>
+					</div>
+				</li>
 				<li><a href="#">About</a></li>
 				<li><a href="#">Recognition</a></li>
 				<li><a href="#">Contact</a></li>
@@ -39,6 +48,16 @@
 			<span class="close-btn">&times;</span>
 			<ul>
 				<li><a href="#">Home</a></li>
+				<li>
+					<div class="dropdown">
+						<button class="dropbtn">ELCAAS</button>
+						<div class="dropdown-content">
+						  <a href="#">Link 1</a>
+						  <a href="#">Link 2</a>
+						  <a href="#">Link 3</a>
+						</div>
+					</div>
+				</li>
 				<li><a href="#">About</a></li>
 				<li><a href="#">Services</a></li>
 				<li><a href="#">Contact</a></li>
@@ -78,14 +97,16 @@
 		</div>
 	</div>
 	
+	<div class="section-seperator"></div>
+	
 	<div Class="homepage-layout">
 		<div class="main-text-wrapper">
 			<h2 class="section-header margin-bottm-10px">Course Management System</h2>
 			<p>Integrated with Tutor LMS Plugin, EduMall having a complete system utilized for managing educational areas.Integrated with Tutor LMS Plugin, EduMall having a complete system utilized for managing educational areasIntegrated with Tutor LMS Plugin, EduMall having a complete system utilized for managing educational areasIntegrated with Tutor LMS Plugin, EduMall having a complete system utilized for managing educational areasIntegrated with Tutor LMS Plugin, EduMall having a complete system utilized for managing educational areas</p>
 		</div>
-	</div>
-	
-	<div Class="homepage-layout">
+		
+		<div class="section-seperator"></div>
+		
 		<div class="our-work-container">
 			<h2 class="section-header">Power features</h2>
 			<div class="work-box">
@@ -137,6 +158,8 @@
 			</div>
 		</div>
 		
+		<div class="section-seperator"></div>
+		
 		<div class="journey-container flex-box-container">
 			<h2 class="section-header">Eclass Journey</h2>
 			
@@ -180,19 +203,35 @@
 			</div>
 			
 		</div>
+		
+		<div class="section-seperator"></div>
 	</div>
 	
-	<div class="owl-carousel">
+	<div class="owl-carousel full-width-carousel">
 		<div class="slide">
 			<img src="./images/work-tile.jpg" alt="Slide 1">
+			<div class="caption">
+				<h1 class="fullwidth-banner-heading">Banner heading AI Education training heading</h1>
+				<a href="#" class="primary-btn fullwidth-slider-btn">Take now</a>
+			</div>
 		</div>
 		<div class="slide">
 			<img src="./images/main-banner1.jpg" alt="Slide 2">
+			<div class="caption">
+				<h1 class="fullwidth-banner-heading">Banner heading AI Education training heading</h1>
+				<a href="#" class="primary-btn fullwidth-slider-btn">Take now</a>
+			</div>
 		</div>
 		<div class="slide">
 			<img src="./images/work-tile.jpg" alt="Slide 3">
+			<div class="caption">
+				<h1 class="fullwidth-banner-heading">Banner heading AI Education training heading</h1>
+				<a href="#" class="primary-btn fullwidth-slider-btn">Take now</a>
+			</div>
 		</div>
 	</div>
+	
+	<div class="section-seperator"></div>
 	
 	<div class="eclass-video-container flex-box-container">
 		<div class="video-desc-box flex-box">
@@ -204,6 +243,8 @@
 			<iframe src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
 		</div>
 	</div>
+	
+	<div class="section-seperator"></div>
 	
 	<div class="tab-container">
 		<h1 class="course-header">Course Management System</h1>
@@ -292,6 +333,8 @@
 	
 	</div>
 	
+	<div class="section-seperator"></div>
+	
 	<div class="school-onboaring-container flex-box-container">
 			<div class="journey-desc-box flex-box">
 				<h1 class="journey-desc-title">Create Your Free Account</h1>
@@ -306,8 +349,14 @@
 			
 		</div>
 		
+		<div class="section-seperator"></div>
+		
 	<div Class="homepage-layout">
 		<div class="logo-slider-container">
+			<div class="logo-slider-header">
+				<h3>Our Associates / Partners</h3>
+				<p>Our Associates and Partners who have sailed through us in our journey of making ELCAAS A</p>
+			</div>
               <div class="swiper">
                 <div class="swiper-wrapper">
                   <a href="#" class="swiper-slide logo-block">
@@ -376,36 +425,43 @@
 		</div>
 	</div>
 	
-	<div class="contact-us-container">
+	<div class="section-seperator"></div>
+	
+	<div class="contact-us-container flex-box-container">
 		<h2 class="section-header margin-bottm-10px">Contact Us</h2>
-			<form action="#" method="POST">
-				<div class="input-group">
-					<label for="fullname">Full Name</label>
-					<input type="text" id="fullname" name="fullname" required>
-				</div>
+			<div class="flex-box">
+				<form action="#" method="POST">
+					<div class="input-group">
+						<label for="fullname">Full Name</label>
+						<input type="text" id="fullname" name="fullname" required>
+					</div>
 
-				<div class="input-group">
-					<label for="email">Email</label>
-					<input type="email" id="email" name="email" required>
-				</div>
+					<div class="input-group">
+						<label for="email">Email</label>
+						<input type="email" id="email" name="email" required>
+					</div>
 
-				<div class="input-group">
-					<label for="company">Company Name</label>
-					<input type="text" id="company" name="company">
-				</div>
+					<div class="input-group">
+						<label for="company">Company Name</label>
+						<input type="text" id="company" name="company">
+					</div>
 
-				<div class="input-group">
-					<label for="phone">Phone Number</label>
-					<input type="tel" id="phone" name="phone" required>
-				</div>
+					<div class="input-group">
+						<label for="phone">Phone Number</label>
+						<input type="tel" id="phone" name="phone" required>
+					</div>
 
-				<div class="input-group">
-					<label for="message">Message</label>
-					<textarea id="message" name="message" rows="4" required></textarea>
-				</div>
+					<div class="input-group">
+						<label for="message">Message</label>
+						<textarea id="message" name="message" rows="4" required></textarea>
+					</div>
 
-				<button class="primary-btn tbn-submit" type="submit">Submit</button>
-			</form>
+					<button class="primary-btn tbn-submit" type="submit">Submit</button>
+				</form>
+			</div>
+			<div class="flex-box">
+				<img src="./images/contact-us.gif" alt="Contact us" />
+			</div>
 	</div>
 	
 	<div class="chatbox-container">
