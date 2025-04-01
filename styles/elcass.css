@@ -3028,6 +3028,7 @@ a {
     border-radius: 10px;
 	margin-top: 20px;
 	align-items: center;
+	border: 1px solid var(--gray-border);
 }
 .journey-svg-icon {
 	background-color: var(--medium-pink);
