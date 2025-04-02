@@ -419,8 +419,32 @@ jQuery(document).ready(function () {
 		}
 	});
   }
+
+	// Hide/show registration/Login form on button click
+	
+	// Initially hide login form
+    jQuery('.login-container').hide();
+
+    // Show login form, hide registration form
+    jQuery('.show-login-form').click(function (event) {
+        event.preventDefault();
+        jQuery('.registration-container').fadeOut(300, function () {
+            jQuery('.login-container').fadeIn(300);
+        });
+    });
+
+    // Show registration form, hide login form
+    jQuery('.show-registration-form').click(function (event) {
+        event.preventDefault();
+        jQuery('.login-container').fadeOut(300, function () {
+            jQuery('.registration-container').fadeIn(300);
+        });
+    });
+  
 });
 
+	
+		
 	var ctx = document.getElementById("myPieChart1").getContext("2d");
 	// Create the Pie Chart
 	var myPieChart1 = new Chart(ctx, {

@@ -3272,7 +3272,7 @@ a {
 	background-color: var(--background-color);
 	padding: 50px 30px;
 }
-form {
+.contact-us-container form {
     width: 90%;
     color: var(--text-color);
 }
@@ -3519,6 +3519,24 @@ input, textarea {
   content: counter(list-counter) ") ";
 }
 
+/* Registartion/ Login Form CSS */
+.register-login-container {
+	background-color: var(--background-color);
+    padding: 50px 30px;
+	color: var(--text-color);
+	gap: 60px;
+	height: 100vh;
+}
+.register-login-container form button {
+	margin-top: 10px;
+}
+.form-acc-link {
+	margin-top: 10px;
+}
+.login-page-carousel .owl-carousel img {
+	height: 400px;
+}
+
 @media (min-width: 1200px) {
 	.work-box {
 		flex: 1;
@@ -3542,6 +3560,12 @@ input, textarea {
 	}
 	.wrong-answer span::after, .correct-answer span::after {
 		left: 125px;
+	}
+	.login-page-carousel.flex-box {
+		width: 50%;
+	}
+	.login-page-carousel .owl-carousel .owl-stage {
+		width: max-content !important;
 	}
 }
 @media (min-width: 1024px) and (max-width: 1200px) {
@@ -3570,6 +3594,9 @@ input, textarea {
 	}
 	.chart-title {
 		font-size: 14px;
+	}
+	.login-page-carousel .owl-carousel img {
+		height: 300px;
 	}
 }
 @media (max-width: 767px) {
@@ -3632,7 +3659,7 @@ input, textarea {
 	.contact-us-container {
 		flex-direction: column;
 	}
-	form {
+	.contact-us-container form {
 		width: 100%;
 	}
 	.homepage-menu .nav-links {
@@ -3680,6 +3707,9 @@ input, textarea {
     }
 	.section-seperator:after {
 		width: 200px;
+	}
+	.register-login-container .flex-box {
+		width: 100%;
 	}
 }
 @media (min-width: 600px) and (max-width: 767px) {
