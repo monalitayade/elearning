@@ -3612,8 +3612,14 @@ select {
 .parameter-section {
     margin-bottom: 30px;
 }
-.final-report-container .report-chart-box {
-	flex-basis: calc(33.1% - 10px);
+.custom-date {
+	appearance: none;
+	-webkit-appearance: none;
+    background-color: var(--text-white);
+    color: var(--text-color);
+    padding: 9px;
+    border: 1px solid var(--gray-border);
+    border-radius: 8px;
 }
 
 @media (min-width: 1200px) {
@@ -3818,6 +3824,10 @@ select {
 	}
 	#report-parameter-form {
 		flex-direction: column;
+	}
+	#report-parameter-form .submit-btn {
+		width: 120px;
+		margin: 0 auto;
 	}
 }
 @media (min-width: 600px) and (max-width: 767px) {
