@@ -3439,7 +3439,7 @@ input, textarea {
 	z-index: 9;
 }
 
-/* Reports page css*/
+/* Result page css*/
 .reportspage-layout {
     padding: 30px 0;
 	color: var(--text-color);
@@ -3602,6 +3602,18 @@ select {
     border-bottom: 1px solid var(--gray-border);
     margin-bottom: 15px;
 	font-weight: 500;
+}
+
+/* Report page CSS */
+.final-report-container .recent-activities-section {
+	width: 100%;
+	margin-right: 0;
+}
+.parameter-section {
+    margin-bottom: 30px;
+}
+.final-report-container .report-chart-box {
+	flex-basis: calc(33.1% - 10px);
 }
 
 @media (min-width: 1200px) {
@@ -3797,6 +3809,15 @@ select {
     }
 	.profile-form-section .form-group {
 		flex-basis: 100%;
+	}
+	.profile-form-wrapper {
+		order: 2;
+	}
+	.profile-pic-section {
+		order: 1;
+	}
+	#report-parameter-form {
+		flex-direction: column;
 	}
 }
 @media (min-width: 600px) and (max-width: 767px) {
