@@ -3621,6 +3621,7 @@ select {
     border: 1px solid var(--gray-border);
     border-radius: 8px;
 	height: 41px;
+	text-align: left;
 }
 
 @media (min-width: 1200px) {
