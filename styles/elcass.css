@@ -3282,6 +3282,7 @@ a {
 label {
     display: block;
     margin-bottom: 5px;
+	text-transform: capitalize;
 }
 input, textarea {
     width: 100%;
@@ -3537,6 +3538,72 @@ input, textarea {
 	height: 400px;
 }
 
+/* My profile page CSS */
+.profile-name {
+	margin-bottom: 10px;
+}
+.profile-pic-section {
+  flex: 1;
+}
+.profile-pic-wrap {
+	height: 230px;
+	object-fit: fill;
+	border: 1px solid var(--gray-border);
+}
+.profile-pic-wrap img {
+	height: 100%;
+}
+input[type="file"] {
+  display: none;
+}
+.custom-file-upload {
+  cursor: pointer;
+}
+.file-name {
+  margin-top: 10px;
+  color: #333;
+  font-size: 14px;
+}
+.profile-form-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+.profile-form-wrapper {
+  flex: 3;
+}
+.profile-form-section {
+  background: #fff;
+  padding: 30px;
+  margin-bottom: 15px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.profile-form-section .form-group {
+    flex-basis: calc(33.3% - 15px);
+}
+.profile-form-section .hobbies-form-group {
+	flex-basis: 100%;
+}
+select {
+	width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border-color: var(--gray-border);
+}
+#profile-form .submit-btn {
+	float: right;
+}
+.form-header {
+    color: var(--primary-color);
+    border-bottom: 1px solid var(--gray-border);
+    margin-bottom: 15px;
+	font-weight: 500;
+}
+
 @media (min-width: 1200px) {
 	.work-box {
 		flex: 1;
@@ -3597,6 +3664,14 @@ input, textarea {
 	}
 	.login-page-carousel .owl-carousel img {
 		height: 300px;
+	}
+}
+@media (min-width: 768px) and (max-width: 992px) {
+	.profile-form-section .form-group {
+		flex-basis: calc(50% - 15px);
+	}
+	.profile-pic-wrap {
+		height: 200px;
 	}
 }
 @media (max-width: 767px) {
@@ -3716,6 +3791,12 @@ input, textarea {
 	}
 	.login-page-carousel {
 		order: 1;
+	}
+	.profile-form-container {
+        flex-direction: column;
+    }
+	.profile-form-section .form-group {
+		flex-basis: 100%;
 	}
 }
 @media (min-width: 600px) and (max-width: 767px) {

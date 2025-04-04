@@ -440,6 +440,18 @@ jQuery(document).ready(function () {
             jQuery('.registration-container').fadeIn(300);
         });
     });
+	
+	//My profile page choose profile photo js
+	jQuery('#file-input').on('change', function (e) {
+      const file = e.target.files[0];
+      if (file) {
+        const previewUrl = URL.createObjectURL(file);
+        jQuery('#preview').attr('src', previewUrl).on('load', function () {
+          URL.revokeObjectURL(previewUrl);
+        });
+        jQuery('#file-name').text(`${file.name}`);
+      }
+    });
   
 });
 
