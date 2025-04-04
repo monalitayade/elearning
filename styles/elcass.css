@@ -3620,6 +3620,7 @@ select {
     padding: 9px;
     border: 1px solid var(--gray-border);
     border-radius: 8px;
+	height: 41px;
 }
 
 @media (min-width: 1200px) {
