@@ -3539,7 +3539,7 @@ input, textarea {
 }
 
 /* My profile page CSS */
-.profile-name {
+.reportspage-layout .profile-name {
 	margin-bottom: 10px;
 }
 .profile-pic-section {
@@ -3622,6 +3622,10 @@ select {
     border-radius: 8px;
 	height: 41px;
 	text-align: left;
+}
+.report-pie-chart {
+	height: 250px !important;
+	width: 250px !important;
 }
 
 @media (min-width: 1200px) {

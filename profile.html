@@ -26,6 +26,95 @@
   <body>
    
     <div class="website-layout-wrapper">
+	<div class="top-navbar">
+            <div class="text-logo">ELCASS</div>
+            <div class="right-content">
+              <div class="language-select">
+					<select id="language">
+						<option value="en">English</option>
+						<option value="es">Spanish</option>
+						<option value="fr">French</option>
+						<option value="de">German</option>
+						<option value="zh">Chinese</option>
+					</select>
+				</div>
+              <div class="search-plot">
+                <!--<input type="search" class="search-input" />-->
+                <button class="search-btn">
+                  <img src="./images/search.svg" alt="Search" />
+                </button>
+              </div>
+              <div class="notification-plot">
+                <div class="notification-buttble">4</div>
+                
+                <button class="notification-btn"><img src="./images/notifications.svg" alt="notification"/></button>
+                <div class="notification-popup">
+                  <div class="popup-arrow"></div>
+                  <div class="notification-row">
+                    <div class="notification-icon">
+                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#dc5aa7"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M18.6 3H5.4A2.4 2.4 0 0 0 3 5.4v15.2A2.4 2.4 0 0 0 5.4 23h13.2a2.4 2.4 0 0 0 2.4-2.4V5.4A2.4 2.4 0 0 0 18.6 3Z" fill="#dc5aa7" fill-opacity=".16" stroke="#dc5aa7" stroke-width="1.5" stroke-miterlimit="10"></path><path d="M7 14h10M7 11h10M7 17h6" stroke="#dc5aa7" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"></path><path d="M15.2 6a.8.8 0 0 0 .8-.8V3H8v2.2a.8.8 0 0 0 .8.8h6.4Z" fill="#ffffff"></path><path d="M16 3v2.2a.8.8 0 0 1-.8.8H8.8a.8.8 0 0 1-.8-.8V3" stroke="#dc5aa7" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"></path><path d="M18.6 3H5.4A2.4 2.4 0 0 0 3 5.4v15.2A2.4 2.4 0 0 0 5.4 23h13.2a2.4 2.4 0 0 0 2.4-2.4V5.4A2.4 2.4 0 0 0 18.6 3Z" stroke="#dc5aa7" stroke-width="1.5" stroke-miterlimit="10"></path><path d="M14 3a2 2 0 1 0-4 0" stroke="#dc5aa7" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"></path></g></svg>
+                    </div>
+                    <div class="notification-desc">
+                      <div class="notification-title">New assignment submitted</div>
+                      <div class="notification-time">2 minuites</div>
+                    </div>
+                  </div>
+                  <div class="notification-row">
+                    <div class="notification-icon">
+                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#dc5aa7"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M3 8.2C3 7.07989 3 6.51984 3.21799 6.09202C3.40973 5.71569 3.71569 5.40973 4.09202 5.21799C4.51984 5 5.0799 5 6.2 5H9.67452C10.1637 5 10.4083 5 10.6385 5.05526C10.8425 5.10425 11.0376 5.18506 11.2166 5.29472C11.4184 5.4184 11.5914 5.59135 11.9373 5.93726L12.0627 6.06274C12.4086 6.40865 12.5816 6.5816 12.7834 6.70528C12.9624 6.81494 13.1575 6.89575 13.3615 6.94474C13.5917 7 13.8363 7 14.3255 7H17.8C18.9201 7 19.4802 7 19.908 7.21799C20.2843 7.40973 20.5903 7.71569 20.782 8.09202C21 8.51984 21 9.0799 21 10.2V15.8C21 16.9201 21 17.4802 20.782 17.908C20.5903 18.2843 20.2843 18.5903 19.908 18.782C19.4802 19 18.9201 19 17.8 19H6.2C5.07989 19 4.51984 19 4.09202 18.782C3.71569 18.5903 3.40973 18.2843 3.21799 17.908C3 17.4802 3 16.9201 3 15.8V8.2Z" stroke="#dc5aa7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                    </div>
+                    <div class="notification-desc">
+                      <div class="notification-title">Scheduled updated</div>
+                      <div class="notification-time">3 hours ago</div>
+                    </div>
+                  </div>
+                  <div class="notification-row">
+                    <div class="notification-icon">
+                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#dc5aa7"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M18.6 3H5.4A2.4 2.4 0 0 0 3 5.4v15.2A2.4 2.4 0 0 0 5.4 23h13.2a2.4 2.4 0 0 0 2.4-2.4V5.4A2.4 2.4 0 0 0 18.6 3Z" fill="#dc5aa7" fill-opacity=".16" stroke="#dc5aa7" stroke-width="1.5" stroke-miterlimit="10"></path><path d="M7 14h10M7 11h10M7 17h6" stroke="#dc5aa7" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"></path><path d="M15.2 6a.8.8 0 0 0 .8-.8V3H8v2.2a.8.8 0 0 0 .8.8h6.4Z" fill="#ffffff"></path><path d="M16 3v2.2a.8.8 0 0 1-.8.8H8.8a.8.8 0 0 1-.8-.8V3" stroke="#dc5aa7" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"></path><path d="M18.6 3H5.4A2.4 2.4 0 0 0 3 5.4v15.2A2.4 2.4 0 0 0 5.4 23h13.2a2.4 2.4 0 0 0 2.4-2.4V5.4A2.4 2.4 0 0 0 18.6 3Z" stroke="#dc5aa7" stroke-width="1.5" stroke-miterlimit="10"></path><path d="M14 3a2 2 0 1 0-4 0" stroke="#dc5aa7" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"></path></g></svg>
+                    </div>
+                    <div class="notification-desc">
+                      <div class="notification-title">New assignment submitted</div>
+                      <div class="notification-time">2 minuites</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="profile-plot">
+                <div class="avtar-plot">
+                  <img src="./images/profile.png" alt="profile-img" />
+                </div>
+                <p class="profile-name">John Doe</p>
+                <div class="arrow">
+                  <img src="./images/bottom-chevron.png" alt="bottom-chevron" />
+                </div>
+                <div class="profile-popup">
+                  <div class="popup-arrow"></div>
+                  <div class="profile-desc">
+                    <div class="profile-name">John Doe</div>
+                    <div class="profile-email">john.doe@example.com</div>
+                  </div>
+                  <ul class="setting-ul">
+                    <li class="setting-li">
+                      <img src="./images/profile-purple.svg" class="setting-icon" alt="profile"/>
+                      <a href="#" class="setting-link">Profile</a>
+                    </li>
+                    <li class="setting-li">
+                      <img src="./images/setting.svg" class="setting-icon" alt="profile"/>
+                      <a href="#" class="setting-link">Setting</a>
+                    </li>
+                    <li class="setting-li">
+                      <img src="./images/security.svg" class="setting-icon" alt="profile"/>
+                      <a href="#" class="setting-link">Password & Security</a>
+                    </li>
+                  </ul>
+                  <div class="logout-block">
+                    <img src="./images/logout.svg" alt="logout" class="logout-icon"/>
+                    Logout
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
       <div class="subject-page">
         <div class="right-side-wrapper" id="main-content">
 		  <section class="subject-layout"> 

@@ -455,101 +455,99 @@ jQuery(document).ready(function () {
   
 });
 
-	
-		
-	var ctx = document.getElementById("myPieChart1").getContext("2d");
-	// Create the Pie Chart
-	var myPieChart1 = new Chart(ctx, {
-		type: "pie",
-		data: {
-			labels: ["Performance", "Performance"],
-			datasets: [{
-				data: [50, 50], // Values
-				backgroundColor: ["#7539cd", "#f7cdea"]
-			}]
-		},
-		options: {
-			responsive: true
+window.addEventListener('DOMContentLoaded', function () {
+	let myPieChart1, myPieChart2, reportPieChart1, reportPieChart2;
+
+	// myPieChart1
+	var myPieChart1Canvas = document.getElementById("myPieChart1");
+	if (myPieChart1Canvas) {
+		if (myPieChart1) {
+			myPieChart1.destroy();
 		}
-	});
-	
-	
-	var ctx = document.getElementById("myPieChart2").getContext("2d");
-	// Create the Pie Chart
-	var myPieChart2 = new Chart(ctx, {
-		type: "pie",
-		data: {
-			labels: ["Performance", "Performance"],
-			datasets: [{
-				data: [65, 35], // Values
-				backgroundColor: ["#7539cd", "#f7cdea"]
-			}]
-		},
-		options: {
-			responsive: true
-		}
-	});
-	
-	var ctx = document.getElementById("halfCircleChart").getContext("2d");
-	var halfCircleChart = new Chart(ctx, {
-		type: "doughnut",
-		data: {
-			labels: ["Performance", "Performance"],
-			datasets: [{
-				data: [40, 60], // Values
-				backgroundColor: ["#7539cd", "#f7cdea"]
-			}]
-		},
-		options: {
-			responsive: true,
-			rotation: -90,  // Start at the top
-			circumference: 180,  // Half-circle (180 degrees)
-			cutout: "50%" // Controls thickness (adjust as needed)
-		}
-	});
-	
-	var ctx = document.getElementById("myBarChart1").getContext("2d");
-	var myBarChart1 = new Chart(ctx, {
-		type: "bar",
-		data: {
-			labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Yellow", "Green", "Purple", "Red", "Blue", "Yellow", "Green", "Purple", "Yellow", "Green", "Purple", "Yellow", "Green", "Purple"],
-			datasets: [{
-				label: "Votes",
-				data: [5, 5, 5, 5, 5, 5, 10, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5], // Data values
-				backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#4CAF50", "#8E44AD"],
-				borderColor: ["#C62828", "#1565C0", "#FF8F00", "#2E7D32", "#6A1B9A", "#FF8F00", "#2E7D32", "#6A1B9A", "#C62828", "#1565C0", "#FF8F00", "#2E7D32", "#6A1B9A", "#FF8F00", "#2E7D32", "#6A1B9A", "#FF8F00", "#2E7D32", "#6A1B9A"],
-				borderWidth: 1
-			}]
-		},
-		options: {
-			responsive: true,
-			scales: {
-				y: {
-					beginAtZero: true
-				}
+		var ctxMyPieChart1 = myPieChart1Canvas.getContext("2d");
+		myPieChart1 = new Chart(ctxMyPieChart1, {
+			type: "pie",
+			data: {
+				labels: ["Performance", "Performance"],
+				datasets: [{
+					data: [50, 50],
+					backgroundColor: ["#7539cd", "#f7cdea"]
+				}]
+			},
+			options: {
+				responsive: true,
+				animation: false
 			}
+		});
+	}
+
+	// myPieChart2
+	var myPieChart2Canvas = document.getElementById("myPieChart2");
+	if (myPieChart2Canvas) {
+		if (myPieChart2) {
+			myPieChart2.destroy();
 		}
-	});
-	
-	var ctx = document.getElementById("myBarChart2").getContext("2d");
-	var myBarChart2 = new Chart(ctx, {
-		type: "bar",
-		data: {
-			labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Yellow", "Green", "Purple"],
-			datasets: [{
-				label: "Votes",
-				data: [10, 10, 10, 10, 10, 20, 10, 20], // Data values
-				backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#4CAF50", "#8E44AD"],
-				borderColor: ["#C62828", "#1565C0", "#FF8F00", "#2E7D32", "#6A1B9A", "#FF8F00", "#2E7D32", "#6A1B9A"],
-				borderWidth: 1
-			}]
-		},
-		options: {
-			responsive: true,
-			scales: {
-				y: {
-					beginAtZero: true
-				}
+		var ctxMyPieChart2 = myPieChart2Canvas.getContext("2d");
+		myPieChart2 = new Chart(ctxMyPieChart2, {
+			type: "pie",
+			data: {
+				labels: ["Performance", "Performance"],
+				datasets: [{
+					data: [65, 35],
+					backgroundColor: ["#7539cd", "#f7cdea"]
+				}]
+			},
+			options: {
+				responsive: true,
+				animation: false
 			}
+		});
+	}
+
+	// reportPieChart1
+	var reportPieChart1Canvas = document.getElementById("reportPieChart1");
+	if (reportPieChart1Canvas) {
+		if (reportPieChart1) {
+			reportPieChart1.destroy();
 		}
-	});
+		var ctxReportPieChart1 = reportPieChart1Canvas.getContext("2d");
+		reportPieChart1 = new Chart(ctxReportPieChart1, {
+			type: "pie",
+			data: {
+				labels: ["Performance", "Performance"],
+				datasets: [{
+					data: [50, 50],
+					backgroundColor: ["#7539cd", "#f7cdea"]
+				}]
+			},
+			options: {
+				responsive: true,
+				animation: false
+			}
+		});
+	}
+
+	// reportPieChart2
+	var reportPieChart2Canvas = document.getElementById("reportPieChart2");
+	if (reportPieChart2Canvas) {
+		if (reportPieChart2) {
+			reportPieChart2.destroy();
+		}
+		var ctxReportPieChart2 = reportPieChart2Canvas.getContext("2d");
+		reportPieChart2 = new Chart(ctxReportPieChart2, {
+			type: "pie",
+			data: {
+				labels: ["Performance", "Performance"],
+				datasets: [{
+					data: [65, 35], // Values
+					backgroundColor: ["#7539cd", "#f7cdea"]
+				}]
+			},
+			options: {
+				responsive: true,
+				animation: false
+			}
+		});
+	}
+});
+
