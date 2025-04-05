@@ -3624,8 +3624,11 @@ select {
 	text-align: left;
 }
 .report-pie-chart {
-	height: 250px !important;
-	width: 250px !important;
+	height: 200px !important;
+	width: 200px !important;
+}
+.no-wrap {
+	flex-wrap: nowrap;
 }
 
 @media (min-width: 1200px) {
@@ -3657,6 +3660,9 @@ select {
 	}
 	.login-page-carousel .owl-carousel .owl-stage {
 		width: max-content !important;
+	}
+	.profile-pic-section {
+		margin-top: 55px;
 	}
 }
 @media (min-width: 1024px) and (max-width: 1200px) {

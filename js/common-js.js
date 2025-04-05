@@ -456,7 +456,8 @@ jQuery(document).ready(function () {
 });
 
 window.addEventListener('DOMContentLoaded', function () {
-	let myPieChart1, myPieChart2, reportPieChart1, reportPieChart2;
+	let myPieChart1, myPieChart2, halfCircleChart, myBarChart1, myBarChart2, 
+		reportPieChart1, reportPieChart2, reportHalfCircleChart, reportBarChart1, reportBarChart2;
 
 	// myPieChart1
 	var myPieChart1Canvas = document.getElementById("myPieChart1");
@@ -503,6 +504,92 @@ window.addEventListener('DOMContentLoaded', function () {
 			}
 		});
 	}
+	
+	// halfCircleChart
+	var halfCircleChartCanvas = document.getElementById("halfCircleChart");
+	if (halfCircleChartCanvas) {
+		if (halfCircleChart) {
+			halfCircleChart.destroy();
+		}
+		var ctxHalfCircleChart = halfCircleChartCanvas.getContext("2d");
+		halfCircleChart = new Chart(ctxHalfCircleChart, {
+			type: "doughnut",
+			data: {
+				labels: ["Performance", "Performance"],
+				datasets: [{
+					data: [40, 60], // Values
+					backgroundColor: ["#7539cd", "#f7cdea"]
+				}]
+			},
+			options: {
+				responsive: true,
+				rotation: -90,  // Start at the top
+				circumference: 180,  // Half-circle (180 degrees)
+				cutout: "50%", // Controls thickness (adjust as needed)
+				animation: false
+			}
+		});
+	}
+	
+	var myBarChart1Canvas = document.getElementById("myBarChart1");
+	if (myBarChart1Canvas) {
+		if (myBarChart1) {
+			myBarChart1.destroy();
+		}
+		var ctxMyBarChart1 = myBarChart1Canvas.getContext("2d");
+		myBarChart1 = new Chart(ctxMyBarChart1, {
+			type: "bar",
+			data: {
+				labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Yellow", "Green", "Purple", "Red", "Blue", "Yellow", "Green", "Purple", "Yellow", "Green", "Purple", "Yellow", "Green", "Purple"],
+				datasets: [{
+					label: "Votes",
+					data: [5, 5, 5, 5, 5, 5, 10, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5], // Data values
+					backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#4CAF50", "#8E44AD"],
+					borderColor: ["#C62828", "#1565C0", "#FF8F00", "#2E7D32", "#6A1B9A", "#FF8F00", "#2E7D32", "#6A1B9A", "#C62828", "#1565C0", "#FF8F00", "#2E7D32", "#6A1B9A", "#FF8F00", "#2E7D32", "#6A1B9A", "#FF8F00", "#2E7D32", "#6A1B9A"],
+					borderWidth: 1
+				}]
+			},
+			options: {
+				responsive: true,
+				scales: {
+					y: {
+						beginAtZero: true
+					}
+				},
+				animation: false
+			}
+		});
+	}
+	
+	var myBarChart2Canvas = document.getElementById("myBarChart2");
+	if (myBarChart2Canvas) {
+		if (myBarChart2) {
+			myBarChart2.destroy();
+		}
+		var ctxMyBarChart2 = myBarChart2Canvas.getContext("2d");
+		myBarChart2 = new Chart(ctxMyBarChart2, {
+			type: "bar",
+			data: {
+				labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Yellow", "Green", "Purple"],
+				datasets: [{
+					label: "Votes",
+					data: [10, 10, 10, 10, 10, 20, 10, 20], // Data values
+					backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#4CAF50", "#8E44AD"],
+					borderColor: ["#C62828", "#1565C0", "#FF8F00", "#2E7D32", "#6A1B9A", "#FF8F00", "#2E7D32", "#6A1B9A"],
+					borderWidth: 1
+				}]
+			},
+			options: {
+				responsive: true,
+				scales: {
+					y: {
+						beginAtZero: true
+					}
+				},
+				animation: false
+			}
+		});
+	}
 
 	// reportPieChart1
 	var reportPieChart1Canvas = document.getElementById("reportPieChart1");
@@ -545,6 +632,91 @@ window.addEventListener('DOMContentLoaded', function () {
 			},
 			options: {
 				responsive: true,
+				animation: false
+			}
+		});
+	}
+	
+	var reportHalfCircleChartCanvas = document.getElementById("reportHalfCircleChart");
+	if (reportHalfCircleChartCanvas) {
+		if (reportHalfCircleChart) {
+			reportHalfCircleChart.destroy();
+		}
+		var ctxReportHalfCircleChart = reportHalfCircleChartCanvas.getContext("2d");
+		reportHalfCircleChart = new Chart(ctxReportHalfCircleChart, {
+			type: "doughnut",
+			data: {
+				labels: ["Performance", "Performance"],
+				datasets: [{
+					data: [40, 60], // Values
+					backgroundColor: ["#7539cd", "#f7cdea"]
+				}]
+			},
+			options: {
+				responsive: true,
+				rotation: -90,  // Start at the top
+				circumference: 180,  // Half-circle (180 degrees)
+				cutout: "50%", // Controls thickness (adjust as needed)
+				animation: false
+			}
+		});
+	}
+	
+	var reportBarChart1Canvas = document.getElementById("reportBarChart1");
+	if (reportBarChart1Canvas) {
+		if (reportBarChart1) {
+			reportBarChart1.destroy();
+		}
+		var ctxReportBarChart1 = reportBarChart1Canvas.getContext("2d");
+		reportBarChart1 = new Chart(ctxReportBarChart1, {
+			type: "bar",
+			data: {
+				labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Yellow", "Green", "Purple", "Red", "Blue", "Yellow", "Green", "Purple", "Yellow", "Green", "Purple", "Yellow", "Green", "Purple"],
+				datasets: [{
+					label: "Votes",
+					data: [5, 5, 5, 5, 5, 5, 10, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5], // Data values
+					backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#4CAF50", "#8E44AD"],
+					borderColor: ["#C62828", "#1565C0", "#FF8F00", "#2E7D32", "#6A1B9A", "#FF8F00", "#2E7D32", "#6A1B9A", "#C62828", "#1565C0", "#FF8F00", "#2E7D32", "#6A1B9A", "#FF8F00", "#2E7D32", "#6A1B9A", "#FF8F00", "#2E7D32", "#6A1B9A"],
+					borderWidth: 1
+				}]
+			},
+			options: {
+				responsive: true,
+				scales: {
+					y: {
+						beginAtZero: true
+					}
+				},
+				animation: false
+			}
+		});
+	}
+	
+	var reportBarChart2Canvas = document.getElementById("reportBarChart2");
+	if (reportBarChart2Canvas) {
+		if (reportBarChart2) {
+			reportBarChart2.destroy();
+		}
+		var ctxReportBarChart2 = reportBarChart2Canvas.getContext("2d");
+		reportBarChart2 = new Chart(ctxReportBarChart2, {
+			type: "bar",
+			data: {
+				labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Yellow", "Green", "Purple"],
+				datasets: [{
+					label: "Votes",
+					data: [10, 10, 10, 10, 10, 20, 10, 20], // Data values
+					backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#4CAF50", "#8E44AD"],
+					borderColor: ["#C62828", "#1565C0", "#FF8F00", "#2E7D32", "#6A1B9A", "#FF8F00", "#2E7D32", "#6A1B9A"],
+					borderWidth: 1
+				}]
+			},
+			options: {
+				responsive: true,
+				scales: {
+					y: {
+						beginAtZero: true
+					}
+				},
 				animation: false
 			}
 		});
