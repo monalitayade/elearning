@@ -3603,6 +3603,9 @@ select {
     margin-bottom: 15px;
 	font-weight: 500;
 }
+.profile-right-img {
+	margin-top: 15px;
+}
 
 /* Report page CSS */
 .final-report-container .recent-activities-section {
