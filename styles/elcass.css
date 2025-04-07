@@ -3844,6 +3844,9 @@ select {
 		width: 120px;
 		margin: 0 auto;
 	}
+	.profile-right-img {
+		display: none;
+	}
 }
 @media (min-width: 600px) and (max-width: 767px) {
 	.report-chart-box {
