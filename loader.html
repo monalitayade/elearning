@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple Loaders</title>
+    <link rel="stylesheet" type="text/css" media="all" href="./styles/elcass.css" />
+</head>
+<body>
+
+    <!-- Full page loader -->
+    <div class="full-loader">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Main content of the page -->
+    <div class="main-content">
+        <h1>Welcome to My Website</h1>
+
+        <!-- Specific loader inside a div -->
+        <div class="content-container">
+            <div class="content-loader">
+                <div class="spinner"></div>
+            </div>
+            <div class="content">
+                <h2>Content Inside the Container</h2>
+                <p>This content was loaded inside the container after the loader disappeared.</p>
+            </div>
+        </div>
+    </div>
+	
+	<script src="./js/jquery-3.7.1.min.js"></script>
+    <script src="./js/common-js.js"></script>
+
+
+</body>
+</html>
+

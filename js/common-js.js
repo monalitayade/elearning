@@ -455,6 +455,23 @@ jQuery(document).ready(function () {
   
 });
 
+//Fullpage and inside page loader js
+$(window).on('load', function () {
+	// Hide the full page loader after 3 seconds (simulate page load time)
+	setTimeout(function () {
+		$('.full-loader').fadeOut();  // Hide the full page loader
+		$('.main-content').fadeIn();  // Show the main content
+	}, 4000);  // Adjust the time here for the page load delay
+});
+
+// Content inside a specific container (div loader)
+$(document).ready(function() {
+	setTimeout(function () {
+		$('.content-loader').fadeOut();  // Hide the content loader
+		$('.content').fadeIn();          // Show the actual content
+	}, 7000);  // Adjust the time here for the specific container loading delay
+});
+
 window.addEventListener('DOMContentLoaded', function () {
 	let myPieChart1, myPieChart2, halfCircleChart, myBarChart1, myBarChart2, 
 		reportPieChart1, reportPieChart2, reportHalfCircleChart, reportBarChart1, reportBarChart2;
