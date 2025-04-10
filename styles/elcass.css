@@ -15,14 +15,18 @@
   --bg-pink: #faf2f8;
   --gray-border: #ccc;
 }
-/*@font-face {
+@font-face {
     font-family: 'poppins';
-    src: url('../fonts/Poppins-Medium.woff2') format('woff2'),
-         url('../fonts/Poppins-Medium.woff') format('woff'),
-         url('../fonts/Poppins-Medium.ttf') format('truetype');
+    src: url('../fonts/Poppins-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
-}*/
+}
+@font-face {
+    font-family: 'poppins-bold';
+    src: url('../fonts/Poppins-SemiBold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 .section-seperator {
     display: flex;
     justify-content: center;
@@ -755,7 +759,7 @@ button.login-btn:hover {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  font-family: "poppins", sans-serif;
+  font-family: "poppins-bold", sans-serif;
   font-size: 20px;
   font-weight: 600;
   color: var(--primary-color);
@@ -1569,7 +1573,7 @@ tr {
 }
 .popup-title {
   width: 100%;
-  font-family: "poppins", sans-serif;
+  font-family: "poppins-bold", sans-serif;
   font-size: 25px;
   color: var(--primary-color);
   font-weight: 500;
@@ -2251,7 +2255,7 @@ a.sub-topic-link {
 .paragraph-title,
 .ul-title {
   width: 100%;
-  font-family: "Poppins", serif;
+  font-family: "Poppins-bold", serif;
   font-size: 24px;
   color: var(--primary-color);
   font-weight: 700;
@@ -2404,6 +2408,7 @@ ul {
   margin-right: 5px;
 }
 .topic-topbar-title {
+	font-family: "poppins-bold", sans-serif;
   text-align: center;
   color: var(--primary-color);
   font-size: 18px;
@@ -2521,6 +2526,9 @@ ul {
   justify-content: center;
   text-transform: uppercase;
   color: var(--text-color);
+}
+.quiz-name-header h3 {
+	font-family: "Poppins-bold", serif;
 }
 .quiz-container {
   margin-top: 15px;
@@ -2918,6 +2926,7 @@ a {
 	margin-bottom: 30px;
 }
 .section-header {
+	font-family: "poppins-bold", sans-serif;
     width: 100%;
 	color: var(--primary-color);
 	text-transform: uppercase;
@@ -3474,6 +3483,7 @@ input, textarea {
 	margin-bottom: 30px;
 }
 .chart-title {
+	font-family: "Poppins-bold", serif;
 	width: 100%;
     text-align: center;
 	text-transform: capitalize;
@@ -3547,7 +3557,7 @@ input, textarea {
 	margin-top: 10px;
 }
 .login-page-carousel .owl-carousel img {
-	height: 400px;
+	height: 100vh;
 }
 
 /* My profile page CSS */
@@ -3610,6 +3620,7 @@ select {
 	float: right;
 }
 .form-header {
+	font-family: "Poppins-bold", serif;
     color: var(--primary-color);
     border-bottom: 1px solid var(--gray-border);
     margin-bottom: 15px;
@@ -3705,6 +3716,7 @@ select {
 	}
 }
 .page-heading {
+	font-family: "Poppins-bold", serif;
 	text-transform: uppercase;
     margin-bottom: 15px;
     text-align: center;

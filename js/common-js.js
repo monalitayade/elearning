@@ -237,60 +237,51 @@ jQuery(document).ready(function () {
                 });
             });*/
 
-  //
-  let currentQuestion = 1;
-  const totalQuestions = $(".question").length;
+  //Quiz page js
+  let currentIndex = 1;
 
-  $("#total-questions").text(totalQuestions);
+  const totalQuestions = $('.question').length;
+  $('#total-questions').text(totalQuestions);
 
-  function updateQuestion() {
-    $(".question").removeClass("active");
-    $('.question[data-index="' + currentQuestion + '"]').addClass("active");
-    $("#current-question").text(currentQuestion);
+  function showQuestion(index) {
+    // Hide all questions and show only current
+    $('.question').hide();
+    $('#q' + index).show();
 
-    $(".prev").prop("disabled", currentQuestion === 1);
-    $(".next").prop("disabled", currentQuestion === totalQuestions);
-    /*$(".next").text(currentQuestion === totalQuestions ? "Submit" : "Next");*/
+    // Update counter
+    $('#current-question').text(index);
+
+    // Toggle active class on navigation list
+    $('.topic-item').removeClass('active');
+    $('.topic-item[data-target="q' + index + '"]').addClass('active');
+
+    // Enable/disable buttons
+    $('.prev').prop('disabled', index === 1);
+    $('.next').prop('disabled', index === totalQuestions);
   }
 
-  $(".next").click(function () {
-    if (currentQuestion < totalQuestions) {
-      currentQuestion++;
-      updateQuestion();
+  $('.next').click(function () {
+    if (currentIndex < totalQuestions) {
+      currentIndex++;
+      showQuestion(currentIndex);
     }
   });
 
-  $(".prev").click(function () {
-    if (currentQuestion > 1) {
-      currentQuestion--;
-      updateQuestion();
+  $('.prev').click(function () {
+    if (currentIndex > 1) {
+      currentIndex--;
+      showQuestion(currentIndex);
     }
   });
 
-  $(".options-wrapper input[type=radio]").on("change", function () {
-    let allAnswered =
-      $(".options-wrapper input[type=radio]:checked").length ===
-      $(".options-wrapper input[type=radio]").length / 3;
-    if (allAnswered) {
-      $("#submit-btn").prop("disabled", false).addClass("enabled");
-    }
-
-    $("#submit-btn")
-      .off("click")
-      .on("click", function () {
-        alert("Quiz submitted successfully!");
-      });
+  // On clicking topic directly
+  $('.topic-item').click(function () {
+    currentIndex = parseInt($(this).data('target').replace('q', ''));
+    showQuestion(currentIndex);
   });
 
-  $(".question-hamburger-wrapper li").on("click", function () {
-    let target = $(this).data("target"); // Get the target question ID
-
-    $(".question-hamburger-wrapper li").removeClass("active");
-    $(this).addClass("active");
-
-    $(".question").removeClass("active"); // Hide all questions
-    $("#" + target).addClass("active"); // Show selected question
-  });
+  // Initialize on load
+  showQuestion(currentIndex);
 
   //Homepage vertical tabs
   jQuery(".tab-link").click(function(event) {
@@ -376,7 +367,7 @@ jQuery(document).ready(function () {
     },
     breakpoints: {
       1336: {
-        slidesPerView: 8,
+        slidesPerView: 7,
         spaceBetween: 50,
       },
       1024: {
