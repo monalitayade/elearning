@@ -828,20 +828,29 @@ button.login-btn:hover {
 .subject-updates {
   width: 100%;
   display: flex;
-  flex-direction: column;
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: flex-start;
-  margin: 0px;
+  margin-bottom: 20px;
   /* padding: 25px 10%; */
 }
+.subject-accordion-box {
+	margin-top: 15px;
+}
+.subject-right-wrapper {
+	width: 40%;
+	text-align: center;
+}
+.subject-right-wrapper img {
+	width: 150px;
+	height: 150px;
+}
 .updates-wrapper {
-  width: 100%;
+  width: 60%;
   display: flex;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   background-color: var(--text-white);
   border-radius: 5px;
-  margin: 0px 0 20px;
 }
 .updates-pannel {
   width: 100%;
@@ -1227,7 +1236,6 @@ tr {
   }
   .subject-updates {
     padding: 0 3%;
-    margin: 0;
   }
 
   .pannel-section {
@@ -3559,6 +3567,27 @@ input, textarea {
 .login-page-carousel .owl-carousel img {
 	height: 100vh;
 }
+.google-btn {
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--text-white);
+    color: var(--text-color);
+    border: 1px solid var(--gray-border);
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.google-btn:hover {
+  background-color: #f7f7f7;
+}
+.google-icon {
+  height: 20px;
+  width: 20px;
+  margin-right: 10px;
+}
 
 /* My profile page CSS */
 .reportspage-layout .profile-name {
@@ -3923,6 +3952,10 @@ select {
 	}
 	.profile-right-img {
 		display: none;
+	}
+	.updates-wrapper,
+	.subject-right-wrapper	{
+		width: 100%;
 	}
 }
 @media (min-width: 600px) and (max-width: 767px) {
