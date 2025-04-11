@@ -2921,6 +2921,36 @@ a {
 .loader-img img {
   width: 100%;
 }
+.bouncing-loader {
+      display: flex;
+      justify-content: space-between;
+      width: 80px;
+	      margin: 50px 0 40px;
+    }
+
+    .bouncing-loader > div {
+      width: 16px;
+      height: 16px;
+      background-color: var(--primary-color);
+      border-radius: 50%;
+      animation: bounce 0.6s infinite alternate;
+    }
+
+    .bouncing-loader > div:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .bouncing-loader > div:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+
+    @keyframes bounce {
+      to {
+        transform: translateY(-15px);
+        opacity: 0.5;
+      }
+    }
+	
 /* Homepage CSS */
 .homepage-layout {
 	padding: 0 30px;
@@ -3699,6 +3729,7 @@ select {
     height: 100vh;
     background-color: rgba(255, 255, 255, 0.8); 
     display: flex;
+	flex-direction: column;
     justify-content: center;
     align-items: center;
     z-index: 9999;
