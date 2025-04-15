@@ -17,24 +17,14 @@
 		<div class="flex-box-container">
 		
 			<div class="flex-box login-page-carousel">
-				<div class="owl-carousel">
-					<div class="slide">
-						<img src="./images/registration-slide1.jpg" alt="Slide 1">
-					</div>
-					<div class="slide">
-						<img src="./images/registration-slide2.jpg" alt="Slide 2">
-					</div>
-				</div>
+				<img src="./images/registration-slide1.jpg" alt="Slide 1">
 			</div>
 			
 			<div class="flex-box reg-login-form">
 				<div class="registration-container">
-					<h2 class="section-header margin-bottm-10px">Register</h2>
+					<h2 class="section-header margin-bottm-10px">Welcome back !</h2>
+					<p class="login-form-text">Enter to get unlimited access to data and information</p>
 					<form>
-						<div class="input-group">
-							<label for="username">User Name</label>
-							<input type="text" placeholder="Username" required>
-						</div>
 						<div class="input-group">
 							<label for="email">Email</label>
 							<input type="email" placeholder="Email">
@@ -43,13 +33,22 @@
 							<label for="password">Password</label>
 							<input type="password" placeholder="Password">
 						</div>
-						<button type="submit" class="primary-btn show-login-form">Register</button>
+						<div class="remember-box">
+							<label>
+								<input type="checkbox" name="remember" class="remember-checkbox"> Remember Me
+							</label>
+							<a href="#" class="primary-link">Forgot your password?</a>
+						</div>
+						<button type="submit" class="primary-btn show-login-form">Log in</button>
 					</form>
+					<div class="line-text-wrapper">
+						<span class="text">Or, Login with</span>
+					</div>
 					<button class="google-btn">
 						<img class="google-icon" src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google logo">
 						Sign Up with Google
 					  </button>
-					<p class="form-acc-link">Already have an account? <a href="#" class="show-login-form">Login</a></p>
+					<p class="form-acc-link">Don't have an account? <a href="#" class="show-login-form primary-link">Register here</a></p>
 				</div>
 				
 				<div class="login-container">

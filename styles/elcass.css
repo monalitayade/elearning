@@ -837,6 +837,9 @@ button.login-btn:hover {
 .subject-accordion-box {
 	margin-top: 15px;
 }
+.subject-accordion-box .flex-box {
+	margin-bottom: 0;
+}
 .subject-right-wrapper {
 	width: 40%;
 	text-align: center;
@@ -2922,34 +2925,34 @@ a {
   width: 100%;
 }
 .bouncing-loader {
-      display: flex;
-      justify-content: space-between;
-      width: 80px;
-	      margin: 50px 0 40px;
-    }
+  display: flex;
+  justify-content: space-between;
+  width: 80px;
+	  margin: 50px 0 40px;
+}
 
-    .bouncing-loader > div {
-      width: 16px;
-      height: 16px;
-      background-color: var(--primary-color);
-      border-radius: 50%;
-      animation: bounce 0.6s infinite alternate;
-    }
+.bouncing-loader > div {
+  width: 16px;
+  height: 16px;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  animation: bounce 0.6s infinite alternate;
+}
 
-    .bouncing-loader > div:nth-child(2) {
-      animation-delay: 0.2s;
-    }
+.bouncing-loader > div:nth-child(2) {
+  animation-delay: 0.2s;
+}
 
-    .bouncing-loader > div:nth-child(3) {
-      animation-delay: 0.4s;
-    }
+.bouncing-loader > div:nth-child(3) {
+  animation-delay: 0.4s;
+}
 
-    @keyframes bounce {
-      to {
-        transform: translateY(-15px);
-        opacity: 0.5;
-      }
-    }
+@keyframes bounce {
+  to {
+	transform: translateY(-15px);
+	opacity: 0.5;
+  }
+}
 	
 /* Homepage CSS */
 .homepage-layout {
@@ -3583,19 +3586,51 @@ input, textarea {
 /* Registartion/ Login Form CSS */
 .register-login-container {
 	background-color: var(--background-color);
-    padding: 50px 30px;
 	color: var(--text-color);
-	gap: 60px;
-	height: 100vh;
+	/*height: 100vh;*/
+}
+.login-form-text {
+	font-size: 13px;
+	margin-bottom: 15px;
+}
+.line-text-wrapper {
+  text-align: center;
+  position: relative;
+  margin: 20px 0;
+}
+.line-text-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--gray-border);
+  z-index: 0;
+}
+.text {
+  position: relative;
+  display: inline-block;
+  background: var(--background-color);
+  padding: 0 15px;
+}
+.primary-link {
+	color: var(--primary-color);
 }
 .register-login-container form button {
 	margin-top: 10px;
+	width: 100%;
 }
 .form-acc-link {
 	margin-top: 10px;
+	text-align: center;
 }
 .login-page-carousel .owl-carousel img {
 	height: 100vh;
+}
+.login-page-carousel img {
+	height: 100%;
+	object-fit: cover;
 }
 .google-btn {
 	display: flex;
@@ -3609,6 +3644,7 @@ input, textarea {
     cursor: pointer;
     transition: background 0.3s;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	width: 100%
 }
 .google-btn:hover {
   background-color: #f7f7f7;
@@ -3617,6 +3653,22 @@ input, textarea {
   height: 20px;
   width: 20px;
   margin-right: 10px;
+}
+.remember-checkbox {
+	width: auto;
+    vertical-align: middle;
+}
+.reg-login-form {
+	display: flex;
+    justify-content: center;
+	align-items: center;
+}
+.registration-container {
+    width: 50%;
+}
+.remember-box {
+	display: flex;
+    justify-content: space-between;
 }
 
 /* My profile page CSS */
@@ -3804,6 +3856,9 @@ select {
 	.profile-pic-section {
 		margin-top: 55px;
 	}
+	.subject-accordion-box .flex-box {
+		flex: 0 1 calc(51% - 26px);
+	}
 }
 @media (min-width: 1024px) and (max-width: 1200px) {
 	.work-box {
@@ -3836,12 +3891,22 @@ select {
 		height: 300px;
 	}
 }
+@media (min-width: 993px) and (max-width: 1200px) {
+	.registration-container {
+		width: 70%;
+		padding: 15px 0;
+	}
+}
 @media (min-width: 768px) and (max-width: 992px) {
 	.profile-form-section .form-group {
 		flex-basis: calc(50% - 15px);
 	}
 	.profile-pic-wrap {
 		height: 200px;
+	}
+	.registration-container {
+		width: 90%;
+		padding: 15px 0;
 	}
 }
 @media (max-width: 767px) {
@@ -3987,6 +4052,10 @@ select {
 	.updates-wrapper,
 	.subject-right-wrapper	{
 		width: 100%;
+	}
+	.registration-container {
+		width: 100%;
+		padding: 0 30px 30px;
 	}
 }
 @media (min-width: 600px) and (max-width: 767px) {
