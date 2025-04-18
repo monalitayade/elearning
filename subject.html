@@ -444,7 +444,6 @@
               <!-- <div class="subject-title">Highlights</div> -->
               <div class="updates-wrapper">
                 <div class="updates-pannel subject-acc">
-                
                   <div class="pannel-section">
                     <a class="updates-links " data-href="#calender"><img src="./images/book-black.svg" alt="acc-icon " class="acc-icon" />Today's Calender
                       <div class="drop-arrow">
@@ -452,6 +451,10 @@
                       </div>
                     </a>
                     <div class="pannel-block" id="calender">
+						<div class="content-loader">
+							<div class="spinner"></div>
+						</div>
+						
                         <div class="pannel-title">Calender</div>
                         <div class="pannel-desc">
                           Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
@@ -766,6 +769,18 @@
         </div>
        </footer>
     </div>
+	
+	<!-- Full page loader -->
+    <div class="full-loader">
+		<div class="text-logo">ELCASS</div>
+		<div class="bouncing-loader">
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+        <div class="spinner"></div>
+    </div>
+	
     <div class="search-popup" data-aos="fade-in">
       <div class="popup-overlay"></div>
       <div class="search-popup-plot">
@@ -800,7 +815,7 @@
         </div>   
     </div>
     <script src="./js/jquery-3.7.1.min.js"></script>
-   
+   <script src="./js/dataTables.js"></script>
     <script src="./js/swiper.js"></script>
     <script src="./js/common-js.js"></script>
     <script src="./js/aos.js"></script>

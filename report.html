@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="stylesheet" href="./styles/swiper.css" />
 	<link rel="stylesheet" href="./styles/aos.css">
+	<link rel="stylesheet" href="./styles/dataTables.css" />
     <title>Report page</title>
     
     <link
@@ -391,7 +392,13 @@
 				<form id="report-parameter-form" class="flex-box-container">
 					<div class="form-group">
 						<label for="parameter-type">Parameter Type</label>
-						<input type="text" id="parameter-type" name="parameter-type" required>
+						<select id="parameter-type" name="parameter-type">
+							<option value="">Select option</option>
+						  <option value="subject">Subject</option>
+						  <option value="subject1">Subject1</option>
+						  <option value="subject">Subject</option>
+						  <option value="subject1">Subject1</option>
+						</select>
 					</div>
 					<div class="form-group">
 						<label for="parameter-value">Parameter Value</label>
@@ -439,7 +446,7 @@
               <div class="recent-activities-section" data-aos="fade-right">
                 <div class="subject-title">Report Data</div>
                 <div class="table-container">
-                  <table class="activities-table">
+                  <table id="report-table" class="activities-table">
                     <thead>
                       <th>Acitivity</th>
                       <th>Course</th>
@@ -447,87 +454,251 @@
                       <th>Date</th>
 					  <th>Course</th>
                       <th>Student</th>
+					  <th>Course</th>
+                      <th>Student</th>
+					  <th>Course</th>
+                      <th>Student</th>
                     </thead>
                     <tbody>
                       <tr class="activities-row">
-                        <td>Assignment Submitted</td>
+                        <td>Maths Assignment</td>
                         <td>Web Development</td>
                         <td>Alice Johnson</td>
                         <td>2023-09-15</td>
 						<td>Web Development</td>
                         <td>Alice Johnson</td>
+						<td>Web Development</td>
+                        <td>Alice Johnson</td>
+						<td>Alice Johnson</td>
+						<td>Web Development</td>
                       </tr>
                       <tr class="activities-row">
-                        <td>Assignment Submitted</td>
+                        <td>English Assignment</td>
                         <td>Web Development</td>
                         <td>Alice Johnson</td>
                         <td>2023-09-15</td>
 						<td>Web Development</td>
                         <td>Alice Johnson</td>
+						<td>Web Development</td>
+                        <td>Alice Johnson</td>
+						<td>Alice Johnson</td>
+						<td>Web Development</td>
                       </tr>
                       <tr class="activities-row">
-                        <td>Assignment Submitted</td>
+                        <td>Physics Assignment</td>
                         <td>Web Development</td>
                         <td>Alice Johnson</td>
                         <td>2023-09-15</td>
 						<td>Web Development</td>
                         <td>Alice Johnson</td>
+						<td>Web Development</td>
+                        <td>Alice Johnson</td>
+						<td>Alice Johnson</td>
+						<td>Web Development</td>
                       </tr>
                       <tr class="activities-row">
-                        <td>Assignment Submitted</td>
+                        <td>English Assignment</td>
                         <td>Web Development</td>
                         <td>Alice Johnson</td>
                         <td>2023-09-15</td>
 						<td>Web Development</td>
                         <td>Alice Johnson</td>
+						<td>Web Development</td>
+                        <td>Alice Johnson</td>
+						<td>Alice Johnson</td>
+						<td>Web Development</td>
                       </tr>
                       <tr class="activities-row">
-                        <td>Assignment Submitted</td>
+                        <td>English Assignment</td>
                         <td>Web Development</td>
                         <td>Alice Johnson</td>
                         <td>2023-09-15</td>
 						<td>Web Development</td>
                         <td>Alice Johnson</td>
+						<td>Web Development</td>
+                        <td>Alice Johnson</td>
+						<td>Alice Johnson</td>
+						<td>Web Development</td>
                       </tr>
                       <tr class="activities-row">
-                        <td>Assignment Submitted</td>
+                        <td>English Assignment</td>
                         <td>Web Development</td>
                         <td>Alice Johnson</td>
                         <td>2023-09-15</td>
 						<td>Web Development</td>
                         <td>Alice Johnson</td>
+						<td>Web Development</td>
+                        <td>Alice Johnson</td>
+						<td>Alice Johnson</td>
+						<td>Web Development</td>
                       </tr>
                       <tr class="activities-row">
-                        <td>Assignment Submitted</td>
+                        <td>English Assignment</td>
                         <td>Web Development</td>
                         <td>Alice Johnson</td>
                         <td>2023-09-15</td>
 						<td>Web Development</td>
                         <td>Alice Johnson</td>
+						<td>Web Development</td>
+                        <td>Alice Johnson</td>
+						<td>Alice Johnson</td>
+						<td>Web Development</td>
                       </tr>
                       <tr class="activities-row">
-                        <td>Assignment Submitted</td>
+                        <td>English Assignment</td>
                         <td>Web Development</td>
                         <td>Alice Johnson</td>
                         <td>2023-09-15</td>
 						<td>Web Development</td>
                         <td>Alice Johnson</td>
+						<td>Web Development</td>
+                        <td>Alice Johnson</td>
+						<td>Alice Johnson</td>
+						<td>Web Development</td>
                       </tr>
                       <tr class="activities-row">
-                        <td>Assignment Submitted</td>
+                        <td>English Assignment</td>
                         <td>Web Development</td>
                         <td>Alice Johnson</td>
                         <td>2023-09-15</td>
 						<td>Web Development</td>
                         <td>Alice Johnson</td>
+						<td>Web Development</td>
+                        <td>Alice Johnson</td>
+						<td>Alice Johnson</td>
+						<td>Web Development</td>
                       </tr>
                       <tr class="activities-row">
-                        <td>Assignment Submitted</td>
+                        <td>English Assignment</td>
                         <td>Web Development</td>
                         <td>Alice Johnson</td>
                         <td>2023-09-15</td>
 						<td>Web Development</td>
                         <td>Alice Johnson</td>
+						<td>Web Development</td>
+                        <td>Alice Johnson</td>
+						<td>Alice Johnson</td>
+						<td>Web Development</td>
+                      </tr>
+					  <tr class="activities-row">
+                        <td>English Assignment</td>
+                        <td>Web Development</td>
+                        <td>Alice Johnson</td>
+                        <td>2023-09-15</td>
+						<td>Web Development</td>
+                        <td>Alice Johnson</td>
+						<td>Web Development</td>
+                        <td>Alice Johnson</td>
+						<td>Alice Johnson</td>
+						<td>Web Development</td>
+                      </tr>
+                      <tr class="activities-row">
+                        <td>English Assignment</td>
+                        <td>Web Development</td>
+                        <td>Alice Johnson</td>
+                        <td>2023-09-15</td>
+						<td>Web Development</td>
+                        <td>Alice Johnson</td>
+						<td>Web Development</td>
+                        <td>Alice Johnson</td>
+						<td>Alice Johnson</td>
+						<td>Web Development</td>
+                      </tr>
+                      <tr class="activities-row">
+                        <td>English Assignment</td>
+                        <td>Web Development</td>
+                        <td>Alice Johnson</td>
+                        <td>2023-09-15</td>
+						<td>Web Development</td>
+                        <td>Alice Johnson</td>
+						<td>Web Development</td>
+                        <td>Alice Johnson</td>
+						<td>Alice Johnson</td>
+						<td>Web Development</td>
+                      </tr>
+                      <tr class="activities-row">
+                        <td>English Assignment</td>
+                        <td>Web Development</td>
+                        <td>Alice Johnson</td>
+                        <td>2023-09-15</td>
+						<td>Web Development</td>
+                        <td>Alice Johnson</td>
+						<td>Web Development</td>
+                        <td>Alice Johnson</td>
+						<td>Alice Johnson</td>
+						<td>Web Development</td>
+                      </tr>
+                      <tr class="activities-row">
+                        <td>English Assignment</td>
+                        <td>Web Development</td>
+                        <td>Alice Johnson</td>
+                        <td>2023-09-15</td>
+						<td>Web Development</td>
+                        <td>Alice Johnson</td>
+						<td>Web Development</td>
+                        <td>Alice Johnson</td>
+						<td>Alice Johnson</td>
+						<td>Web Development</td>
+                      </tr>
+                      <tr class="activities-row">
+                        <td>English Assignment</td>
+                        <td>Web Development</td>
+                        <td>Alice Johnson</td>
+                        <td>2023-09-15</td>
+						<td>Web Development</td>
+                        <td>Alice Johnson</td>
+						<td>Web Development</td>
+                        <td>Alice Johnson</td>
+						<td>Alice Johnson</td>
+						<td>Web Development</td>
+                      </tr>
+                      <tr class="activities-row">
+                        <td>English Assignment</td>
+                        <td>Web Development</td>
+                        <td>Alice Johnson</td>
+                        <td>2023-09-15</td>
+						<td>Web Development</td>
+                        <td>Alice Johnson</td>
+						<td>Web Development</td>
+                        <td>Alice Johnson</td>
+						<td>Alice Johnson</td>
+						<td>Web Development</td>
+                      </tr>
+                      <tr class="activities-row">
+                        <td>English Assignment</td>
+                        <td>Web Development</td>
+                        <td>Alice Johnson</td>
+                        <td>2023-09-15</td>
+						<td>Web Development</td>
+                        <td>Alice Johnson</td>
+						<td>Web Development</td>
+                        <td>Alice Johnson</td>
+						<td>Alice Johnson</td>
+						<td>Web Development</td>
+                      </tr>
+                      <tr class="activities-row">
+                        <td>English Assignment</td>
+                        <td>Web Development</td>
+                        <td>Alice Johnson</td>
+                        <td>2023-09-15</td>
+						<td>Web Development</td>
+                        <td>Alice Johnson</td>
+						<td>Web Development</td>
+                        <td>Alice Johnson</td>
+						<td>Alice Johnson</td>
+						<td>Web Development</td>
+                      </tr>
+                      <tr class="activities-row">
+                        <td>English Assignment</td>
+                        <td>Web Development</td>
+                        <td>Alice Johnson</td>
+                        <td>2023-09-15</td>
+						<td>Web Development</td>
+                        <td>Alice Johnson</td>
+						<td>Web Development</td>
+                        <td>Alice Johnson</td>
+						<td>Alice Johnson</td>
+						<td>Web Development</td>
                       </tr>
                     </tbody>
                   </table>
@@ -610,6 +781,7 @@
 	<script src="./js/owl.carousel.min.js"></script>
 	<script src="./js/chart.js"></script>
 	<script src="./js/aos.js"></script>
+	<script src="./js/dataTables.js"></script>
     <script src="./js/common-js.js"></script>
     
   

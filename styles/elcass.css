@@ -47,6 +47,7 @@
 *::-webkit-scrollbar {
   width: 5px;
   border-radius: 4px;
+  height: 5px;
 }
 
 /* Track */
@@ -264,7 +265,7 @@ button.login-btn:hover {
   .left-nav {
     margin-left: auto;
   }
-  nav {
+  .homepage-menu nav {
     width: 50%;
     position: fixed;
     top: 60px;
@@ -935,6 +936,7 @@ button.login-btn:hover {
   display: none;
   padding: 15px;
   border-top: 1px solid #ccc;
+  position: relative;
 }
 .pannel-block.active {
   /* display: flex; */
@@ -966,7 +968,8 @@ button.login-btn:hover {
 .activities-section {
   width: 100%;
   display: flex;
-  justify-content: center;
+  gap: 30px;
+  /*justify-content: center;*/
   align-items: baseline;
   /* background-color: var(--bg-pink); */
   padding: 25px 0%;
@@ -980,7 +983,7 @@ button.login-btn:hover {
   background-color: var(--text-white);
   padding: 15px;
   border-radius: 15px;
-  margin-left: 30px;
+  /*margin-left: 30px;*/
 }
 .upcoming-section {
   width: 30%;
@@ -1168,8 +1171,11 @@ td {
   overflow: hidden;
 }
 @media (min-width: 1113px) and (max-width: 1300px) {
+	.upcoming-section {
+		width: 36%;
+	}
 	.recent-activities-section {
-		width: 60%;
+		width: 64%;
 	}
 }
 @media (max-width: 1112px) {
@@ -3768,6 +3774,19 @@ select {
 }
 .parameter-section {
     margin-bottom: 30px;
+	background-color: var(--text-white);
+    padding: 20px;
+    border-radius: 10px;
+    justify-content: center;
+    display: flex;
+}
+.parameter-section .form-group {
+	width: 19%;
+}
+#report-parameter-form {
+	width: 100%;
+    justify-content: center;
+	align-items: center;
 }
 .custom-date {
 	appearance: none;
@@ -3787,6 +3806,10 @@ select {
 .no-wrap {
 	flex-wrap: nowrap;
 }
+.dt-container .dt-layout-row:first-child,
+.dt-container .dt-layout-row:nth-child(3) {
+    padding: 0 15px;
+}
 
 /* Fullpage and inside page loader CSS */
 .main-content,
@@ -3800,7 +3823,7 @@ select {
     width: 100vw;
     height: 100vh;
     background-color: rgba(255, 255, 255, 0.8); 
-    display: flex;
+    display: none;
 	flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -3834,13 +3857,17 @@ select {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+	background-color: rgba(255, 255, 255, 0.8); 
+	width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
 }
 .content {
     display: none;
     text-align: center;
 }
-
-
 
 @media (min-width: 1200px) {
 	.work-box {
@@ -3927,6 +3954,9 @@ select {
 	.registration-container {
 		width: 90%;
 		padding: 15px 0;
+	}
+	.parameter-section .form-group {
+		width: calc(32.8% - 10px);
 	}
 }
 @media (max-width: 767px) {
@@ -4059,13 +4089,6 @@ select {
 	.profile-pic-section {
 		order: 1;
 	}
-	#report-parameter-form {
-		flex-direction: column;
-	}
-	#report-parameter-form .submit-btn {
-		width: 120px;
-		margin: 0 auto;
-	}
 	.profile-right-img {
 		display: none;
 	}
@@ -4082,10 +4105,23 @@ select {
 	.report-chart-box {
 		flex-basis: calc(50% - 10px);
 	}
+	.parameter-section .form-group {
+		width: calc(50% - 10px);
+	}
+	#report-parameter-form {
+		justify-content: center;
+	}
 }
 @media (max-width: 600px) {
 	.reports-chart-container {
 		flex-direction: column;
+	}
+	#report-parameter-form {
+		width: 80%;
+		flex-direction: column;
+	}
+	.parameter-section .form-group {
+		width: 100%;
 	}
 }
 

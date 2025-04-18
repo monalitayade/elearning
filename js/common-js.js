@@ -1,4 +1,7 @@
 jQuery(document).ready(function () {
+	//Report page Datatable
+	new DataTable('#report-table');
+	
   //sidenavigation animation
   jQuery(".hamburger-icon").on("click", function () {
     console.log("clciked");
@@ -445,22 +448,31 @@ jQuery(document).ready(function () {
     });
   
 });
-
-//Fullpage and inside page loader js
+//Fullpage loader js
 $(window).on('load', function () {
-	// Hide the full page loader after 3 seconds (simulate page load time)
+	$('.swiper-button-next').click(function (event) {
+        event.preventDefault();
+		$('.full-loader').css("display","flex");
+		$('.full-loader').fadeIn();  
+        // Hide the full page loader after 3 seconds (simulate page load time)
 	setTimeout(function () {
 		$('.full-loader').fadeOut();  // Hide the full page loader
-		$('.main-content').fadeIn();  // Show the main content
-	}, 4000);  // Adjust the time here for the page load delay
+	}, 2000);  // Adjust the time here for the page load delay
+    });
 });
 
 // Content inside a specific container (div loader)
 $(document).ready(function() {
-	setTimeout(function () {
-		$('.content-loader').fadeOut();  // Hide the content loader
-		$('.content').fadeIn();          // Show the actual content
-	}, 7000);  // Adjust the time here for the specific container loading delay
+	$('.drop-arrow').click(function (event) {
+        event.preventDefault();
+		$('.content-loader').css("display","flex");
+		$('.content-loader').fadeIn();  
+        // Hide the full page loader after 3 seconds (simulate page load time)
+		setTimeout(function () {
+			$('.content-loader').fadeOut();  // Hide the content loader
+			$(this).parent(".pannel-section").find('.pannel-block').fadeIn();          // Show the actual content
+		}, 4000);
+    });
 });
 
 window.addEventListener('DOMContentLoaded', function () {
