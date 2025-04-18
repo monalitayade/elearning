@@ -1599,8 +1599,7 @@ td {
   border-radius: 5px;
   padding: 20px;
 }
-.welcome-popup-plot .close-popup,
-.slider-popup-plot .close-popup {
+.welcome-popup-plot .close-popup {
   width: 40px;
   position: absolute;
   right: 6px;
@@ -3106,6 +3105,32 @@ a {
 .primary-btn:hover {
 	box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
+.secondary-btn {
+    background: var(--light-pink);
+    padding: 10px 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    display: inline-block;
+    color: var(--primary-color);
+    text-decoration: none;
+	border: 0;
+}
+.secondary-btn:hover {
+	box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+.gray-btn {
+    background: var(--background-color);
+    padding: 10px 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    display: inline-block;
+    color: var(--primary-color);
+    text-decoration: none;
+	border: 0;
+}
+.gray-btn:hover {
+	box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
 .journey-container {
 	margin-bottom: 30px;
 }
@@ -3528,11 +3553,14 @@ input, textarea {
 	z-index: 9;
 }
 
-/* Result page css*/
+/* Report page css*/
 .reportspage-layout {
     padding: 30px 0;
 	color: var(--text-color);
 	background-color: var(--background-color);
+}
+.reportspage-layout .table-container {
+	height: 571px;
 }
 .report-chart-box {
     flex-basis: calc(32.8% - 10px);
@@ -3612,7 +3640,7 @@ input, textarea {
 
 /* Registartion/ Login Form CSS */
 .register-login-container {
-	background-color: var(--background-color);
+	background-color: var(--primary-color);
 	color: var(--text-color);
 	/*height: 100vh;*/
 }
@@ -3692,6 +3720,12 @@ input, textarea {
 }
 .registration-container {
     width: 50%;
+	background-color: var(--background-color);
+	padding: 15px 20px;
+}
+.login-container {
+	background-color: var(--background-color);
+	padding: 15px 20px;
 }
 .remember-box {
 	display: flex;
@@ -3884,7 +3918,7 @@ select {
 
 /* Slider popup CSS */
 .slider-popup {
-    z-index: 1;
+    z-index: 3;
 	width: 100%;
     height: 100%;
     position: fixed;
@@ -3904,9 +3938,66 @@ select {
     left: 50%;
     transform: translate(-50%, -50%);
     margin: auto 0;
-    background-color: var(--light-pink);
     border-radius: 5px;
-    padding: 20px;
+}
+.slider-popup-plot .close-popup {
+	width: 40px;
+    position: absolute;
+    border: 0;
+    cursor: pointer;
+	background: var(--text-white);
+    z-index: 2;
+    border-radius: 50%;
+    line-height: 6px;
+    top: -16px;
+    right: -16px;
+}
+.slide-popup-content {
+	position: absolute;
+    top: 50%;
+    left: 5%;
+    color: var(--text-white);
+    width: 60%;
+    transform: translateY(-50%);
+}
+.slide-popup-content a {
+	margin-right: 16px;
+}
+.slide-popup-content p {
+	margin: 20px 0 10px;
+}
+.slider-popup .owl-carousel .slide {
+    height: calc(100vh - 130px);
+}
+.slide1 {
+    background-color: var(--primary-color);
+}
+.slide2 {
+    background-color: var(--light-pink);
+}
+.slide3 {
+    background-color: var(--text-red);
+}
+.slide4 {
+    background-color: var(--text-green);
+}
+.slider-popup .owl-dots {
+	display: block;
+	position: absolute;
+    bottom: -35px;
+    z-index: 22;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.slider-popup .owl-dot {
+	height: 15px;
+    width: 15px;
+    background: var(--background-color) !important;
+    margin-right: 8px;
+    border-radius: 50%;
+}
+.slider-popup .owl-dot.active {
+    background: var(--secondary-color) !important;
 }
 
 @media (min-width: 768px) {
@@ -3964,6 +4055,10 @@ select {
 	}
 	.login-page-carousel .owl-carousel img {
 		height: 300px;
+	}
+	.slider-popup-plot,
+	.slide-popup-content	{
+		width: 85%;
 	}
 }
 @media (min-width: 993px) and (max-width: 1200px) {
@@ -4127,6 +4222,18 @@ select {
 	.registration-container {
 		width: 100%;
 		padding: 0 30px 30px;
+	}
+	.reportspage-layout .table-container {
+		height: 664px;
+	}
+	.slider-popup-plot {
+		width: 80%;
+	}
+	.slide-popup-content {
+		width: 85%;
+	}
+	.slider-popup-header {
+		font-size: 22px;
 	}
 }
 @media (min-width: 600px) and (max-width: 767px) {
