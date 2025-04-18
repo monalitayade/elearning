@@ -92,7 +92,7 @@ jQuery(document).ready(function () {
 
   //welcome popup jquery
   setTimeout(function () {
-    $(".welcome-popup").fadeIn();
+    $(".welcome-popup, .slider-popup").fadeIn();
   }, 3000);
 
   $(".close-popup").click(function () {
