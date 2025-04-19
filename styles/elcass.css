@@ -4131,8 +4131,9 @@ select {
 	}
 	.register-login-container {
 		padding: 5rem 0;
+		display: flex;
+        align-items: center;
 	}
-	
 }
 @media (max-width: 767px) {
 	.our-work-container {
