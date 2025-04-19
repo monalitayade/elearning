@@ -97,6 +97,7 @@ jQuery(document).ready(function () {
 
   $(".close-popup").click(function () {
     $(".welcome-popup").fadeOut();
+	$(".slider-popup").fadeOut();
   });
 
   //illustration popup
@@ -414,16 +415,13 @@ jQuery(document).ready(function () {
 	});
   }
 
-	// Hide/show registration/Login form on button click
-	
-	// Initially hide login form
-    jQuery('.login-container').hide();
-
     // Show login form, hide registration form
     jQuery('.show-login-form').click(function (event) {
         event.preventDefault();
         jQuery('.registration-container').fadeOut(300, function () {
             jQuery('.login-container').fadeIn(300);
+			jQuery('.otp-field').fadeOut(300);
+			jQuery('.verify-otp-btn').fadeOut(300);
         });
     });
 
@@ -433,6 +431,13 @@ jQuery(document).ready(function () {
         jQuery('.login-container').fadeOut(300, function () {
             jQuery('.registration-container').fadeIn(300);
         });
+    });
+	
+	// Show OTP field
+    jQuery('.show-otp-form').click(function (event) {
+        event.preventDefault();
+        jQuery('.otp-field').fadeIn(300);
+		jQuery('.verify-otp-btn').fadeIn(300);
     });
 	
 	//My profile page choose profile photo js

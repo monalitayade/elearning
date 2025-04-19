@@ -27,6 +27,9 @@
     font-weight: normal;
     font-style: normal;
 }
+body, html {
+    height: 100%;
+}
 .section-seperator {
     display: flex;
     justify-content: center;
@@ -3642,7 +3645,34 @@ input, textarea {
 .register-login-container {
 	background-color: var(--primary-color);
 	color: var(--text-color);
-	/*height: 100vh;*/
+	min-height: 100%;
+}
+.register-login-container .flex-box-container {
+	align-items: center;
+	justify-content: center;
+    height: 100%;
+}
+.login-page-carousel .owl-dots {
+	display: block;
+	position: absolute;
+    bottom: 30px;
+    z-index: 7;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.login-page-carousel .owl-dot {
+    width: 12px;
+    height: 12px;
+    background: var(--gray-border) !important;
+    margin: 0 5px;
+    border-radius: 50%;
+}
+.login-page-carousel .owl-dot.active {
+    background: var(--primary-color) !important;
+}
+.login-page-carousel .slide {
+	background: var(--text-white);
+    height: 100vh;
 }
 .login-form-text {
 	font-size: 13px;
@@ -3680,12 +3710,11 @@ input, textarea {
 	margin-top: 10px;
 	text-align: center;
 }
-.login-page-carousel .owl-carousel img {
-	height: 100vh;
-}
 .login-page-carousel img {
-	height: 100%;
 	object-fit: cover;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
 }
 .google-btn {
 	display: flex;
@@ -3718,18 +3747,37 @@ input, textarea {
     justify-content: center;
 	align-items: center;
 }
-.registration-container {
-    width: 50%;
+.common-reg-container {
+    width: 55%;
 	background-color: var(--background-color);
 	padding: 15px 20px;
 }
-.login-container {
+.registartion-container {
 	background-color: var(--background-color);
 	padding: 15px 20px;
 }
 .remember-box {
 	display: flex;
     justify-content: space-between;
+}
+.display-flex {
+	display: flex;
+}
+.registration-container .input-group {
+	width: calc(50% - 8px);
+    display: inline-block;
+}
+.registration-container .input-group:nth-child(2n+1) {
+	margin-right: 10px;
+}
+.registration-container .otp-field {
+	display: none;
+	width: 100%;
+	margin-top: 15px;
+}
+.login-container,
+.verify-otp-btn {
+	display: none;
 }
 
 /* My profile page CSS */
@@ -3964,7 +4012,7 @@ select {
 	margin-right: 16px;
 }
 .slide-popup-content p {
-	margin: 20px 0 10px;
+	margin-top: 20px;
 }
 .slider-popup .owl-carousel .slide {
     height: calc(100vh - 130px);
@@ -4053,18 +4101,14 @@ select {
 	.chart-title {
 		font-size: 14px;
 	}
-	.login-page-carousel .owl-carousel img {
-		height: 300px;
-	}
 	.slider-popup-plot,
 	.slide-popup-content	{
-		width: 85%;
+		width: 95%;
 	}
 }
 @media (min-width: 993px) and (max-width: 1200px) {
-	.registration-container {
-		width: 70%;
-		padding: 15px 0;
+	.common-reg-container {
+		width: 85%;
 	}
 }
 @media (min-width: 768px) and (max-width: 992px) {
@@ -4074,13 +4118,21 @@ select {
 	.profile-pic-wrap {
 		height: 200px;
 	}
-	.registration-container {
-		width: 90%;
-		padding: 15px 0;
+	.common-reg-container {
+		width: 70%;
 	}
 	.parameter-section .form-group {
 		width: calc(32.8% - 10px);
 	}
+}
+@media (max-width: 992px) {
+	.login-page-carousel {
+		display: none;
+	}
+	.register-login-container {
+		padding: 5rem 0;
+	}
+	
 }
 @media (max-width: 767px) {
 	.our-work-container {
@@ -4191,15 +4243,6 @@ select {
 	.section-seperator:after {
 		width: 200px;
 	}
-	.register-login-container .flex-box {
-		width: 100%;
-	}
-	.reg-login-form {
-		order: 2;
-	}
-	.login-page-carousel {
-		order: 1;
-	}
 	.profile-form-container {
         flex-direction: column;
     }
@@ -4219,9 +4262,8 @@ select {
 	.subject-right-wrapper	{
 		width: 100%;
 	}
-	.registration-container {
-		width: 100%;
-		padding: 0 30px 30px;
+	.common-reg-container {
+		width: 95%;
 	}
 	.reportspage-layout .table-container {
 		height: 664px;
@@ -4257,6 +4299,15 @@ select {
 	}
 	.parameter-section .form-group {
 		width: 100%;
+	}
+	#login-form {
+		font-size: 12px;
+	}
+	.login-welcome-text {
+		font-size: 14px;
+	}
+	.text-logo {
+		font-size: 18px;
 	}
 }
 

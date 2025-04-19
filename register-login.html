@@ -28,10 +28,45 @@
 			</div>
 			
 			<div class="flex-box reg-login-form">
-				<div class="registration-container">
-					<h2 class="section-header margin-bottm-10px">Welcome back !</h2>
+				<div class="registration-container common-reg-container">
+					<div class="display-flex login-welcome-text">
+						<h2 class="section-header">Welcome back !</h2>
+						<div class="text-logo">ELCASS</div>
+					</div>
+					<p class="login-form-text">Please use form for register or <a href="#" class="show-login-form">login</a> here</p>
+					<form id="registration-form">
+						<div class="input-group">
+							<label for="name">Name</label>
+							<input type="text" placeholder="Name">
+						</div>
+						<div class="input-group">
+							<label for="mobile">Mobile number</label>
+							<input type="number" placeholder="Mobile number">
+						</div>
+						<div class="input-group">
+							<label for="email">Email</label>
+							<input type="email" placeholder="Email">
+						</div>
+						<div class="input-group">
+							<label for="password">Password</label>
+							<input type="password" placeholder="Password">
+						</div>
+						<button type="submit" class="primary-btn show-otp-form">Signup</button>
+						<div class="input-group otp-field">
+							<label for="otp">Enter OTP</label>
+							<input type="text" placeholder="OTP">
+						</div>
+						<button class="primary-btn verify-otp-btn">Verify OTP</button>
+					</form>
+				</div>
+				
+				<div class="login-container common-reg-container">
+					<div class="display-flex login-welcome-text">
+						<h2 class="section-header">Welcome back !</h2>
+						<div class="text-logo">ELCASS</div>
+					</div>
 					<p class="login-form-text">Enter to get unlimited access to data and information</p>
-					<form>
+					<form id="login-form">
 						<div class="input-group">
 							<label for="email">Email</label>
 							<input type="email" placeholder="Email">
@@ -46,7 +81,7 @@
 							</label>
 							<a href="#" class="primary-link">Forgot your password?</a>
 						</div>
-						<button type="submit" class="primary-btn show-login-form">Log in</button>
+						<button type="submit" class="primary-btn show-registration-form">Log in</button>
 					</form>
 					<div class="line-text-wrapper">
 						<span class="text">Or, Login with</span>
@@ -55,27 +90,7 @@
 						<img class="google-icon" src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google logo">
 						Sign Up with Google
 					  </button>
-					<p class="form-acc-link">Don't have an account? <a href="#" class="show-login-form primary-link">Register here</a></p>
-				</div>
-				
-				<div class="login-container">
-					<h2 class="section-header margin-bottm-10px">Login</h2>
-					<form>
-						<div class="input-group">
-							<label for="email">Email</label>
-							<input type="email" placeholder="Email">
-						</div>
-						<div class="input-group">
-							<label for="password">Password</label>
-							<input type="password" placeholder="Password">
-						</div>
-						<button type="submit" class="primary-btn show-registration-form">Login</button>
-					</form>
-					<button class="google-btn">
-						<img class="google-icon" src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google logo">
-						Sign Up with Google
-					  </button>
-					<p class="form-acc-link">Don't have an account? <a href="#" class="show-registration-form">Register</a></p>
+					<p class="form-acc-link">Don't have an account? <a href="#" class="show-registration-form primary-link">Register here</a></p>
 				</div>
 			</div>
 			
