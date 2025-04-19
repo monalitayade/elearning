@@ -4121,6 +4121,9 @@ select {
 	.common-reg-container {
 		width: 70%;
 	}
+	.login-container {
+		width: 100%;
+	}
 	.parameter-section .form-group {
 		width: calc(32.8% - 10px);
 	}
@@ -4133,6 +4136,7 @@ select {
 		padding: 5rem 0;
 		display: flex;
         align-items: center;
+		justify-content: center;
 	}
 }
 @media (max-width: 767px) {
@@ -4309,6 +4313,9 @@ select {
 	}
 	.text-logo {
 		font-size: 18px;
+	}
+	.registration-container .input-group {
+		width: 100%;
 	}
 }
 
