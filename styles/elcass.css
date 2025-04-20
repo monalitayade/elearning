@@ -4048,6 +4048,99 @@ select {
     background: var(--secondary-color) !important;
 }
 
+/* Global Search Page CSS */
+#search-container {
+	text-align: center;
+    background: var(--primary-color);
+	color: var(--text-white);
+    padding: 30px 15px 40px;
+	margin-top: 15px;
+}
+.search-wrapper {
+  position: relative;
+  width: 600px;
+  margin: 0 auto;
+}
+.ui-autocomplete {
+  max-width: 100%;
+  overflow-x: auto;
+  box-sizing: border-box;
+  z-index: 1; 
+}
+.ui-autocomplete {
+  width: 600px; 
+}
+.mic-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  cursor: pointer;
+  color: #333;
+}
+.search-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #333;
+  height: 20px;
+  width: 20px;
+}
+#search-container .section-header {
+	color: var(--text-white);
+	margin-bottom: 5px;
+}
+#search-box {
+  padding: 10px 40px 10px 35px;
+  font-size: 16px;
+}
+#search-box:focus {
+  outline: 0;
+}
+.search-flex-container {
+    display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
+	margin: 20px 0;
+}
+.search-content-box {
+	position: relative;
+    flex-basis: calc(33.3% - 20px);
+    border-radius: 8px;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.search-content-box::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    transition: background 0.3s ease-in-out;
+	border-radius: 8px;
+}
+.search-content-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+.search-content-box .tile-title {
+	font-size: 16px;
+}
+.search-content-box img {
+    height: 100%;
+    border-radius: 8px;
+}
+/*.search-box-title {
+	color: var(--primary-color);
+	margin-bottom: 10px;
+}
+#search-container p {
+	margin-bottom: 5px;
+}*/
+
 @media (min-width: 768px) {
 	.flex-box {
 		flex: 1;
@@ -4137,6 +4230,9 @@ select {
 		display: flex;
         align-items: center;
 		justify-content: center;
+	}
+	.search-content-box .tile-title {
+		font-size: 14px;
 	}
 }
 @media (max-width: 767px) {
@@ -4282,6 +4378,13 @@ select {
 	.slider-popup-header {
 		font-size: 22px;
 	}
+	.search-wrapper,
+	.ui-autocomplete {
+		width: 75%;
+	}
+	.global-search-layout {
+		padding: 0 5%;
+	}
 }
 @media (min-width: 600px) and (max-width: 767px) {
 	.report-chart-box {
@@ -4292,6 +4395,9 @@ select {
 	}
 	#report-parameter-form {
 		justify-content: center;
+	}
+	.search-content-box	{
+		flex-basis: calc(50% - 10px);
 	}
 }
 @media (max-width: 600px) {
@@ -4316,6 +4422,9 @@ select {
 	}
 	.registration-container .input-group {
 		width: 100%;
+	}
+	.search-content-box	{
+		flex-basis: 100%;
 	}
 }
 

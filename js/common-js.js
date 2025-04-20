@@ -453,6 +453,51 @@ jQuery(document).ready(function () {
     });
   
 });
+
+// Sample autocomplete data
+  const searchSuggestions = [
+    "Apple", "Amazon", "Android", "Banana", "Bitcoin", "Blueberry", "ChatGPT", "Chrome", "Cloud", "Crypto"
+  ];
+
+  // jQuery UI Autocomplete
+  $(function () {
+    $("#search-box").autocomplete({
+	  source: searchSuggestions,
+	  open: function () {
+		const ac = $(this).autocomplete("widget");
+		ac.css("width", $(this).outerWidth());
+	  }
+	});
+  });
+
+  // Web Speech API
+  const micButton = document.getElementById("mic-icon");
+  const searchBox = document.getElementById("search-box");
+
+  micButton.addEventListener("click", () => {
+    if (!('webkitSpeechRecognition' in window)) {
+      alert("Speech Recognition not supported. Try Chrome browser.");
+      return;
+    }
+
+    const recognition = new webkitSpeechRecognition();
+    recognition.lang = "en-US";
+    recognition.interimResults = false;
+    recognition.maxAlternatives = 1;
+
+    recognition.start();
+
+    recognition.onresult = function (event) {
+      const transcript = event.results[0][0].transcript;
+      searchBox.value = transcript;
+      $(searchBox).autocomplete("search"); // Trigger autocomplete
+    };
+
+    recognition.onerror = function (event) {
+      console.error("Speech recognition error:", event.error);
+    };
+  });
+  
 //Fullpage loader js
 $(window).on('load', function () {
 	$('.swiper-button-next').click(function (event) {
