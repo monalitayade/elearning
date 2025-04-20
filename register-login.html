@@ -28,10 +28,10 @@
 			</div>
 			
 			<div class="flex-box reg-login-form">
+				<div class="text-logo">ELCASS</div>
 				<div class="registration-container common-reg-container">
-					<div class="display-flex login-welcome-text">
+					<div class="login-welcome-text">
 						<h2 class="section-header">Welcome back !</h2>
-						<div class="text-logo">ELCASS</div>
 					</div>
 					<p class="login-form-text">Please use form for register or <a href="#" class="show-login-form primary-link">login</a> here</p>
 					<form id="registration-form">
@@ -52,18 +52,22 @@
 							<input type="password" placeholder="Password">
 						</div>
 						<button type="submit" class="primary-btn show-otp-form">Signup</button>
-						<div class="input-group otp-field">
-							<label for="otp">Enter OTP</label>
-							<input type="text" placeholder="OTP">
-						</div>
-						<button class="primary-btn verify-otp-btn">Verify OTP</button>
 					</form>
+					
+					<div class="verify-otp-container">
+						<form id="verify-otp-form">
+							<div class="input-group otp-field">
+								<label for="otp">Enter OTP</label>
+								<input type="text" placeholder="OTP">
+							</div>
+							<button class="primary-btn verify-otp-btn">Verify OTP</button>
+						</form>
+					</div>
 				</div>
 				
 				<div class="login-container common-reg-container">
-					<div class="display-flex login-welcome-text">
+					<div class="login-welcome-text">
 						<h2 class="section-header">Welcome back !</h2>
-						<div class="text-logo">ELCASS</div>
 					</div>
 					<p class="login-form-text">Enter to get unlimited access to data and information</p>
 					<form id="login-form">
@@ -79,7 +83,7 @@
 							<label>
 								<input type="checkbox" name="remember" class="remember-checkbox"> Remember Me
 							</label>
-							<a href="#" class="primary-link">Forgot your password?</a>
+							<a href="#" class="primary-link forgot-password-link">Forgot your password?</a>
 						</div>
 						<button type="submit" class="primary-btn show-registration-form">Log in</button>
 					</form>
@@ -92,8 +96,25 @@
 					  </button>
 					<p class="form-acc-link">Don't have an account? <a href="#" class="show-registration-form primary-link">Register here</a></p>
 				</div>
+				
+				<div class="forgot-password-container common-reg-container">
+					<h2 class="section-header">
+						Password is gone? <br/>
+						Let's reset it!
+					</h2>
+					<p class="login-form-text">
+					Please enter your email to receive a link to reset your password <br/>
+					If you are a member, please <a href="#" class="show-login-form primary-link">login</a></p>
+					<form id="forgot-password-form">
+						<div class="input-group">
+							<label for="email">Email</label>
+							<input type="email" placeholder="Email">
+						</div>
+						<button class="primary-btn">Send Reset Email</button>
+					</form>
+				</div>
+				
 			</div>
-			
 		</div>
 	</div>
 	

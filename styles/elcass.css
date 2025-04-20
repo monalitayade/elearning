@@ -3673,6 +3673,7 @@ input, textarea {
 .login-page-carousel .slide {
 	background: var(--text-white);
     height: 100vh;
+	position: relative;
 }
 .login-form-text {
 	font-size: 13px;
@@ -3711,10 +3712,13 @@ input, textarea {
 	text-align: center;
 }
 .login-page-carousel img {
-	object-fit: cover;
+	object-fit: contain;
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
+	left: 50%;
+    transform: translate(-50%, -50%);
+	width: 500px !important;
+	box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 .google-btn {
 	display: flex;
@@ -3746,6 +3750,14 @@ input, textarea {
 	display: flex;
     justify-content: center;
 	align-items: center;
+	gap: 20px;
+	padding: 0 20px;
+}
+.reg-login-form .text-logo {
+	background-color: var(--background-color);
+	align-self: flex-start;
+	padding: 5px 10px;
+	margin: 0;
 }
 .common-reg-container {
     width: 55%;
@@ -3763,20 +3775,12 @@ input, textarea {
 .display-flex {
 	display: flex;
 }
-.registration-container .input-group {
-	width: calc(50% - 8px);
-    display: inline-block;
-}
-.registration-container .input-group:nth-child(2n+1) {
-	margin-right: 10px;
-}
 .registration-container .otp-field {
-	display: none;
-	width: 100%;
 	margin-top: 15px;
 }
 .login-container,
-.verify-otp-btn {
+.verify-otp-container,
+.forgot-password-container {
 	display: none;
 }
 
@@ -4141,6 +4145,11 @@ select {
 	margin-bottom: 5px;
 }*/
 
+@media (max-width: 1200px) {
+	.login-page-carousel img {
+		width: 420px !important;
+	}
+}
 @media (min-width: 768px) {
 	.flex-box {
 		flex: 1;
@@ -4155,7 +4164,7 @@ select {
 		left: 125px;
 	}
 	.login-page-carousel.flex-box {
-		width: 50%;
+		width: 48%;
 	}
 	.login-page-carousel .owl-carousel .owl-stage {
 		width: max-content !important;
@@ -4212,10 +4221,7 @@ select {
 		height: 200px;
 	}
 	.common-reg-container {
-		width: 70%;
-	}
-	.login-container {
-		width: 100%;
+		width: 400px;
 	}
 	.parameter-section .form-group {
 		width: calc(32.8% - 10px);
@@ -4233,6 +4239,9 @@ select {
 	}
 	.search-content-box .tile-title {
 		font-size: 14px;
+	}
+	.reg-login-form {
+		flex-direction: column;
 	}
 }
 @media (max-width: 767px) {
@@ -4363,9 +4372,6 @@ select {
 	.subject-right-wrapper	{
 		width: 100%;
 	}
-	.common-reg-container {
-		width: 95%;
-	}
 	.reportspage-layout .table-container {
 		height: 664px;
 	}
@@ -4385,6 +4391,9 @@ select {
 	.global-search-layout {
 		padding: 0 5%;
 	}
+	.reg-login-form .text-logo {
+		margin-left: 0.5%;
+	}
 }
 @media (min-width: 600px) and (max-width: 767px) {
 	.report-chart-box {
@@ -4398,6 +4407,9 @@ select {
 	}
 	.search-content-box	{
 		flex-basis: calc(50% - 10px);
+	}
+	.common-reg-container {
+		width: 350px;
 	}
 }
 @media (max-width: 600px) {
@@ -4425,6 +4437,9 @@ select {
 	}
 	.search-content-box	{
 		flex-basis: 100%;
+	}
+	.common-reg-container {
+		width: 300px;
 	}
 }
 

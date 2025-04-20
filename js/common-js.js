@@ -420,8 +420,8 @@ jQuery(document).ready(function () {
         event.preventDefault();
         jQuery('.registration-container').fadeOut(300, function () {
             jQuery('.login-container').fadeIn(300);
-			jQuery('.otp-field').fadeOut(300);
-			jQuery('.verify-otp-btn').fadeOut(300);
+			jQuery('.verify-otp-container').fadeOut(300);
+			jQuery('.forgot-password-container').fadeOut(300);
         });
     });
 
@@ -436,8 +436,15 @@ jQuery(document).ready(function () {
 	// Show OTP field
     jQuery('.show-otp-form').click(function (event) {
         event.preventDefault();
-        jQuery('.otp-field').fadeIn(300);
-		jQuery('.verify-otp-btn').fadeIn(300);
+        jQuery('.verify-otp-container').fadeIn(300);
+    });
+	
+	// Forgot password click
+    jQuery('.forgot-password-link').click(function (event) {
+        event.preventDefault();
+        jQuery('.login-container').fadeOut(300, function () {
+            jQuery('.forgot-password-container').fadeIn(300);
+        });
     });
 	
 	//My profile page choose profile photo js
