@@ -463,7 +463,7 @@ jQuery(document).ready(function () {
 
 // Sample autocomplete data
   const searchSuggestions = [
-    "Apple", "Amazon", "Android", "Banana", "Bitcoin", "Blueberry", "ChatGPT", "Chrome", "Cloud", "Crypto"
+    "Apple", "Amazon", "Android", "Banana", "Bitcoin", "Blueberry", "Subject", "Chrome", "Cloud", "Crypto"
   ];
 
   // jQuery UI Autocomplete
@@ -481,6 +481,7 @@ jQuery(document).ready(function () {
   const micButton = document.getElementById("mic-icon");
   const searchBox = document.getElementById("search-box");
 
+	if (micButton) {
   micButton.addEventListener("click", () => {
     if (!('webkitSpeechRecognition' in window)) {
       alert("Speech Recognition not supported. Try Chrome browser.");
@@ -504,6 +505,7 @@ jQuery(document).ready(function () {
       console.error("Speech recognition error:", event.error);
     };
   });
+	} 
   
 //Fullpage loader js
 $(window).on('load', function () {

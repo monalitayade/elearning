@@ -3760,7 +3760,7 @@ input, textarea {
 	margin: 0;
 }
 .common-reg-container {
-    width: 55%;
+    width: 60%;
 	background-color: var(--background-color);
 	padding: 15px 20px;
 }
@@ -3771,6 +3771,7 @@ input, textarea {
 .remember-box {
 	display: flex;
     justify-content: space-between;
+	font-size: 14px;
 }
 .display-flex {
 	display: flex;
@@ -4131,7 +4132,8 @@ select {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 .search-content-box .tile-title {
-	font-size: 16px;
+	font-size: 14px;
+	padding: 10px;
 }
 .search-content-box img {
     height: 100%;
@@ -4238,7 +4240,7 @@ select {
 		justify-content: center;
 	}
 	.search-content-box .tile-title {
-		font-size: 14px;
+		font-size: 12px;
 	}
 	.reg-login-form {
 		flex-direction: column;
@@ -4409,7 +4411,7 @@ select {
 		flex-basis: calc(50% - 10px);
 	}
 	.common-reg-container {
-		width: 350px;
+		width: 400px;
 	}
 }
 @media (max-width: 600px) {
@@ -4440,6 +4442,9 @@ select {
 	}
 	.common-reg-container {
 		width: 300px;
+	}
+	.remember-box {
+		font-size: 12px;
 	}
 }
 
