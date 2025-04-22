@@ -458,6 +458,145 @@ jQuery(document).ready(function () {
         jQuery('#file-name').text(`${file.name}`);
       }
     });
+	
+	//Chat AI page js
+	const responses = [
+            {
+                question: "How many chapters",
+                response: "4 chapters"
+            },
+            {
+                question: "Name the subjects available",
+                response: `
+					<p>Hello, here are the subjects available:</p>
+					<div class="query-img-box">
+						<div class="query-image">
+						  <svg fill="#fff" viewBox="0 0 32 32" version="1.1" stroke="#fff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M25.326 30.335l-5.325-6.302v-11.047h0.666c0.552 0 1-0.447 1-1s-0.448-1-1-1h-1.666c-0.552 0-1 0.447-1 1v12.432c0 0.248 0.092 0.486 0.258 0.67l4.074 4.917h-12.665l4.074-4.917c0.166-0.183 0.258-0.422 0.258-0.67v-12.432c0-0.553-0.447-1-1-1h-1.666c-0.553 0-1 0.447-1 1s0.447 1 1 1h0.666v11.047l-5.325 6.302c-0.264 0.293-0.332 0.715-0.172 1.076s0.519 0.594 0.914 0.594h17.167c0.395 0 0.753-0.233 0.914-0.594 0.16-0.361 0.093-0.783-0.172-1.076zM15 9.99c1.102 0 1.995-0.893 1.995-1.995 0-1.101-0.893-1.994-1.995-1.994s-1.995 0.894-1.995 1.994c0 1.102 0.893 1.995 1.995 1.995zM21.515 7.021c1.949 0 3.529-1.573 3.529-3.513s-1.579-3.513-3.529-3.513c-1.948 0-3.529 1.573-3.529 3.513s1.581 3.513 3.529 3.513zM21.499 1.989c0.833 0 1.511 0.675 1.511 1.504s-0.677 1.504-1.511 1.504-1.511-0.675-1.511-1.504c0-0.829 0.677-1.504 1.511-1.504z"></path> </g></svg>
+						<p class="query-title">Chemistry</p>
+					  </div>
+					  <div class="query-image">
+						  <svg fill="#fff" viewBox="0 0 32 32" version="1.1" stroke="#fff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M25.326 30.335l-5.325-6.302v-11.047h0.666c0.552 0 1-0.447 1-1s-0.448-1-1-1h-1.666c-0.552 0-1 0.447-1 1v12.432c0 0.248 0.092 0.486 0.258 0.67l4.074 4.917h-12.665l4.074-4.917c0.166-0.183 0.258-0.422 0.258-0.67v-12.432c0-0.553-0.447-1-1-1h-1.666c-0.553 0-1 0.447-1 1s0.447 1 1 1h0.666v11.047l-5.325 6.302c-0.264 0.293-0.332 0.715-0.172 1.076s0.519 0.594 0.914 0.594h17.167c0.395 0 0.753-0.233 0.914-0.594 0.16-0.361 0.093-0.783-0.172-1.076zM15 9.99c1.102 0 1.995-0.893 1.995-1.995 0-1.101-0.893-1.994-1.995-1.994s-1.995 0.894-1.995 1.994c0 1.102 0.893 1.995 1.995 1.995zM21.515 7.021c1.949 0 3.529-1.573 3.529-3.513s-1.579-3.513-3.529-3.513c-1.948 0-3.529 1.573-3.529 3.513s1.581 3.513 3.529 3.513zM21.499 1.989c0.833 0 1.511 0.675 1.511 1.504s-0.677 1.504-1.511 1.504-1.511-0.675-1.511-1.504c0-0.829 0.677-1.504 1.511-1.504z"></path> </g></svg>
+						<p class="query-title">Maths</p>
+					  </div>
+					</div>
+				`
+            },
+            {
+                question: "How many subjects",
+                response: "7 subjects"
+            },
+        ];
+
+        let messageCount = 0;
+
+        $('#send-button').on('click', sendMessage);
+        $('#chat-input').on('keypress', function (e) {
+            if (e.which === 13) {
+                sendMessage();
+            }
+        });
+
+        function showTypingLoader() {
+            const loader = $('<div class="message bot typing-loader"><span></span><span></span><span></span></div>');
+            $('#chat-box').append(loader);
+            $('#chat-box').scrollTop($('#chat-box')[0].scrollHeight);
+        }
+
+        function sendMessage() {
+            const message = $('#chat-input').val().trim();
+            if (!message) return;
+
+            displayMessage(message, 'user');
+            showTypingLoader();
+            $('#chat-input').val('');
+
+            messageCount++;
+            setTimeout(() => {
+                $('.typing-loader').remove();
+                const botResponse = getBotResponse(message);
+                displayMessage(botResponse, 'bot');
+            }, 2000);
+        }
+
+        function getBotResponse(userMessage) {
+            const match = responses.find(res => userMessage.toLowerCase().includes(res.question.toLowerCase()));
+			return match ? match.response : "Thank you for your message!";
+        }
+
+        function displayMessage(text, sender) {
+            const messageDiv = $('<div class="message"></div>').addClass(sender);
+
+            if (sender === 'bot') {
+                const wrapperDiv = $('<div class="bot-wrapper"></div>');
+                const contentDiv = $('<div class="content"></div>').html(text);
+                // Add related queries 
+				const relatedQueries = $(`
+					<div class="related-queries">
+						<p class="queries-header">related queries:</p>
+						<ul>
+							<li class="related-btn"><p>How many chapters</p></li>
+							<li class="related-btn"><p>How many subjects</p></li>
+							<li class="related-btn"><p>Name the subjects available</p></li>
+						</ul>
+					</div>
+				`);
+
+				wrapperDiv.append(contentDiv, relatedQueries);
+                messageDiv.append(wrapperDiv);
+
+            } else {
+                const contentDiv = $('<div class="content"></div>').text(text);
+                messageDiv.append(contentDiv);
+            }
+
+            $('#chat-box').append(messageDiv);
+            $('#chat-box').scrollTop($('#chat-box')[0].scrollHeight);
+        }
+		
+		$(document).on('click', '.related-btn', function () {
+			const query = $(this).text();
+			
+			$('#chat-input').val(query);       
+			sendMessage();                     
+		});
+		
+		//Chat AI mic JS and Mic on Global search page
+		const micButton = $("#mic-button").length ? $("#mic-button") : $("#mic-icon");
+    const chatInput = $("#chat-input");
+    const searchBox = $("#search-box");
+
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    const recognition = SpeechRecognition ? new SpeechRecognition() : null;
+
+    if (micButton.length && recognition) {
+      recognition.continuous = false;
+      recognition.interimResults = false;
+      recognition.lang = "en-US";
+
+      micButton.on("click", function () {
+        recognition.start();
+      });
+
+      recognition.onresult = function (event) {
+        const transcript = event.results[0][0].transcript;
+
+        if (chatInput.length) {
+          chatInput.val(chatInput.val() + transcript + " ").focus();
+        } else if (searchBox.length) {
+          searchBox.val(transcript);
+          if ($.isFunction($.fn.autocomplete)) {
+            searchBox.autocomplete("search");
+          }
+        }
+      };
+
+      recognition.onerror = function (event) {
+        console.error("Speech recognition error:", event.error);
+      };
+    } else if (micButton.length) {
+      micButton.prop("disabled", true).attr("title", "Speech recognition not supported in this browser.");
+      alert("Speech Recognition not supported. Try Chrome browser.");
+    }
   
 });
 
@@ -476,36 +615,6 @@ jQuery(document).ready(function () {
 	  }
 	});
   });
-
-  // Web Speech API
-  const micButton = document.getElementById("mic-icon");
-  const searchBox = document.getElementById("search-box");
-
-	if (micButton) {
-  micButton.addEventListener("click", () => {
-    if (!('webkitSpeechRecognition' in window)) {
-      alert("Speech Recognition not supported. Try Chrome browser.");
-      return;
-    }
-
-    const recognition = new webkitSpeechRecognition();
-    recognition.lang = "en-US";
-    recognition.interimResults = false;
-    recognition.maxAlternatives = 1;
-
-    recognition.start();
-
-    recognition.onresult = function (event) {
-      const transcript = event.results[0][0].transcript;
-      searchBox.value = transcript;
-      $(searchBox).autocomplete("search"); // Trigger autocomplete
-    };
-
-    recognition.onerror = function (event) {
-      console.error("Speech recognition error:", event.error);
-    };
-  });
-	} 
   
 //Fullpage loader js
 $(window).on('load', function () {
