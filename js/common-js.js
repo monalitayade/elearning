@@ -258,22 +258,22 @@ jQuery(document).ready(function () {
     $('#current-question').text(index);
 
     // Toggle active class on navigation list
-    $('.topic-item').removeClass('active');
-    $('.topic-item[data-target="q' + index + '"]').addClass('active');
+    $('.question-hamburger-wrapper .topic-item').removeClass('active');
+    $('.question-hamburger-wrapper .topic-item[data-target="q' + index + '"]').addClass('active');
 
     // Enable/disable buttons
-    $('.prev').prop('disabled', index === 1);
-    $('.next').prop('disabled', index === totalQuestions);
+    $('.pagination-btn-wrapper .prev').prop('disabled', index === 1);
+    $('.pagination-btn-wrapper .next').prop('disabled', index === totalQuestions);
   }
 
-  $('.next').click(function () {
+  $('.pagination-btn-wrapper .next').click(function () {
     if (currentIndex < totalQuestions) {
       currentIndex++;
       showQuestion(currentIndex);
     }
   });
 
-  $('.prev').click(function () {
+  $('.pagination-btn-wrapper .prev').click(function () {
     if (currentIndex > 1) {
       currentIndex--;
       showQuestion(currentIndex);
@@ -281,10 +281,15 @@ jQuery(document).ready(function () {
   });
 
   // On clicking topic directly
-  $('.topic-item').click(function () {
-    currentIndex = parseInt($(this).data('target').replace('q', ''));
-    showQuestion(currentIndex);
-  });
+  $('.question-hamburger-wrapper .topic-item').click(function () {
+	  var target = $(this).data('target');
+	  if (target) { // Only proceed if target exists
+		currentIndex = parseInt(target.replace('q', ''));
+		showQuestion(currentIndex);
+	  } else {
+		console.warn('No data-target found for this item:', this);
+	  }
+	});
 
   // Initialize on load
   showQuestion(currentIndex);
