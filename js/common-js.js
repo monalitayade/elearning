@@ -1,6 +1,8 @@
 jQuery(document).ready(function () {
 	//Report page Datatable
-	new DataTable('#report-table');
+	if ($('#report-table').length) {
+		new DataTable('#report-table');
+	}
 	
   //sidenavigation animation
   jQuery(".hamburger-icon").on("click", function () {
@@ -575,6 +577,8 @@ jQuery(document).ready(function () {
 
       micButton.on("click", function () {
         recognition.start();
+		micButton.addClass("recording");
+  $("#recording-overlay").fadeIn();
       });
 
       recognition.onresult = function (event) {
@@ -588,11 +592,20 @@ jQuery(document).ready(function () {
             searchBox.autocomplete("search");
           }
         }
+		 micButton.removeClass("recording");
+  $("#recording-overlay").fadeOut();
       };
 
       recognition.onerror = function (event) {
         console.error("Speech recognition error:", event.error);
+		micButton.removeClass("recording");
+  $("#recording-overlay").fadeOut();
       };
+	  
+	  recognition.onend = function () {
+		micButton.removeClass("recording");
+  $("#recording-overlay").fadeOut();
+	  };
     } else if (micButton.length) {
       micButton.prop("disabled", true).attr("title", "Speech recognition not supported in this browser.");
       alert("Speech Recognition not supported. Try Chrome browser.");
