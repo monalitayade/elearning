@@ -4112,7 +4112,6 @@ select {
 .search-content-box {
 	position: relative;
     flex-basis: 28%;
-    border-radius: 8px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     margin-bottom: 20px;
     min-height: 250px;
@@ -4140,7 +4139,6 @@ select {
 }
 .search-content-box img {
     height: 100%;
-    border-radius: 8px;
 	object-fit: cover;
 }
 
