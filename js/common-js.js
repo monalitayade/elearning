@@ -1,7 +1,12 @@
 jQuery(document).ready(function () {
 	//Report page Datatable
-	if ($('#report-table').length) {
-		new DataTable('#report-table');
+	if ($('#report-table').length || $('.common-datatable').length) {
+		if ($('#report-table').length) {
+			new DataTable('#report-table');
+		}
+		if ($('.common-datatable').length) {
+			new DataTable('#content-report-table');
+		}
 	}
 	
   //sidenavigation animation
