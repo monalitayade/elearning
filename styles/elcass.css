@@ -4386,27 +4386,36 @@ select {
 	padding-bottom: 30px;
 }
 .marquee-container {
-	display: flex;
-    gap: 20px;
-  width: 100%;
   overflow: hidden;
   white-space: nowrap;
-  box-sizing: border-box;
   background: var(--light-pink);
   padding: 15px 0;
+  cursor: pointer;
+  position: relative;
+}
+.marquee-container:hover .marquee {
+	animation-play-state: paused;
 }
 .marquee {
-  display: inline-block;
-  animation: marquee 10s linear infinite;
+  display: inline-flex;
+    width: fit-content;
+    animation: marquee 15s linear infinite;
+}
+.marquee a {
+	display: inline-block;
+	padding: 0 1rem;
+	color: var(--text-color);
+	text-decoration: none;
+	white-space: nowrap;
 }
 @keyframes marquee {
-  from {
-	transform: translateX(0);
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
   }
-  to {
-	transform: translateX(-100%);
-  }
-}
 .banner-wrap {
 	position: relative;
 }

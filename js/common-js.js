@@ -620,6 +620,17 @@ jQuery(document).ready(function () {
       micButton.prop("disabled", true).attr("title", "Speech recognition not supported in this browser.");
       alert("Speech Recognition not supported. Try Chrome browser.");
     }
+	
+	// Marquee on Content page should run in loop
+	const original = $('.marquee');
+    const wrapper = $('<div class="marquee-track-wrapper"></div>');
+    
+    // Move the original marquee-track into a new wrapper
+    original.wrap(wrapper);
+    
+    // Clone it and append inside wrapper
+    const clone = original.clone();
+    original.parent().append(clone);	
   
 });
 
