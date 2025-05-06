@@ -158,12 +158,11 @@ jQuery(document).ready(function () {
     jQuery(this).next().slideToggle();
     jQuery(this).toggleClass("active");
   });
-
+  
   // Add active class only for topic links **not** inside `.chapter-topics-layout.topic-aside`
   jQuery(".topic-link")
     .not(".chapter-topics-layout.topic-aside .topic-link")
     .click(function (e) {
-      e.preventDefault();
 
       if (!jQuery(this).hasClass("active")) {
         jQuery(".topic-link").removeClass("active");
