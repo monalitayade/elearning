@@ -4456,10 +4456,61 @@ select {
 	padding: 0;
 }
 
+/*********************** chapter page grid section *****************************/
+
+.chapter-grid-pannel{
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+.chapter-search-wrapper{
+  width: 50%;
+  display: flex;
+}
+.chapter-grid-wrapper{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.chapter-grid-strip{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* border: 1px solid #ccc; */
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.6s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  margin-top: 30px;
+  padding: 16px 20px;
+}
+.chapter-grid-strip:hover{
+  background-color: var(--light-pink);
+}
+.chapter-grid-strip .pannel-links-wrapper{
+  margin-left: unset;
+}
+.grid-icon-wrapper{
+  width: auto;
+  display: flex;
+  padding: 0 10px;
+}
+.grid-icon-wrapper .pannel-button-wrapper{
+  margin: 0;
+}
+.chapter-name{
+  width: 200px;
+  display: flex;
+  flex-wrap: wrap;
+}
 @media (max-width: 1200px) {
 	.login-page-carousel img {
 		width: 420px !important;
 	}
+  .chapter-grid-pannel{
+    width: 100%;
+  }
 }
 @media (min-width: 768px) {
 	.flex-box {
@@ -4767,6 +4818,23 @@ select {
 	.remember-box {
 		font-size: 12px;
 	}
+  .chapter-search-wrapper{
+    width: 100%;
+  }
+  .chapter-grid-strip {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    gap: 1rem; /* adjust spacing as needed */
+    padding: 1rem;
+    -webkit-overflow-scrolling: touch; /* smooth scrolling on iOS */
+  }
+  .chapter-grid-strip .pannel-button-wrapper {
+        flex-wrap: nowrap;
+    }
+    .chapter-name{
+      width: auto;
+    }
 }
 
 
