@@ -1833,13 +1833,13 @@ td {
 }
 .pannel-btn {
   width: auto;
-  background-color: var(--light-purple);
+  background-color: var(--primary-color);
   font-family: "poppins", sans-serif;
   font-weight: 500;
-  color: var(--primary-color);
+  color: var(--light-pink);
   border-radius: 3px;
   cursor: pointer;
-  padding: 10px 10px 5px;
+  padding: 10px;
   border: 0;
   overflow: hidden;
   transition: color 0.3s ease;
