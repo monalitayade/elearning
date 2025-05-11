@@ -1846,6 +1846,7 @@ td {
   position: relative;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light box shadow */
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+  text-decoration: none;
 }
 .pannel-btn:hover {
   transform: scale(1.05); /* Slight zoom on hover */
@@ -4459,17 +4460,20 @@ select {
 /*********************** chapter page grid section *****************************/
 
 .chapter-grid-pannel{
-  width: 60%;
+  /* width: 60%; */
+  width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: end;
+  align-items: center;
+  /* align-items: end; */
 }
 .chapter-search-wrapper{
   width: 50%;
   display: flex;
 }
 .chapter-grid-wrapper{
-  width: 100%;
+  /* width: 100%; */
+  width: 90%;
   display: flex;
   flex-direction: column;
 }
@@ -4482,11 +4486,13 @@ select {
   background-color: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: background-color 0.6s ease, transform 0.3s ease, box-shadow 0.3s ease;
-  margin-top: 30px;
+  border:1px solid transparent; 
+  margin-top: 15px;
   padding: 16px 20px;
 }
 .chapter-grid-strip:hover{
   background-color: var(--light-pink);
+  border:1px solid var(--primary-color);
 }
 .chapter-grid-strip .pannel-links-wrapper{
   margin-left: unset;
