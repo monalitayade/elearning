@@ -1837,7 +1837,7 @@ td {
   font-family: "poppins", sans-serif;
   font-weight: 500;
   color: var(--light-pink);
-  border-radius: 3px;
+  border-radius: 7px;
   cursor: pointer;
   padding: 10px;
   border: 0;
@@ -4527,6 +4527,9 @@ select {
   .chapter-grid-pannel{
     width: 100%;
   }
+  .chapter-grid-wrapper{
+    width: 100%;
+  }
 }
 @media (min-width: 768px) {
 	.flex-box {
@@ -4839,11 +4842,13 @@ select {
   }
   .chapter-grid-strip {
     display: flex;
+    justify-content: center;
     overflow-x: auto;
     white-space: nowrap;
     gap: 1rem; /* adjust spacing as needed */
     padding: 1rem;
     -webkit-overflow-scrolling: touch; /* smooth scrolling on iOS */
+
   }
   .chapter-grid-strip .pannel-button-wrapper {
         flex-wrap: nowrap;
@@ -4854,6 +4859,20 @@ select {
      .chapter-grid-wrapper{
     width: 100%;
   }
+  .grid-icon-wrapper{
+    width: 100%;
+    padding: 0;
+  }
+  .pannel-btn{
+    display: inline-table;
+  }
+  .chapter-grid-strip .pannel-button-wrapper {
+        flex-wrap: nowrap;
+        white-space: nowrap;
+        overflow: scroll;
+         scrollbar-width: none;         /* Firefox */
+  -ms-overflow-style: none;
+    }
 }
 
 
