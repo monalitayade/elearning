@@ -1936,6 +1936,9 @@ td {
     width: 85%;
     height: 100vh;
   }
+  .chapter-grid-wrapper{
+    width: 100%;
+  }
 }
 .topics-wrapper {
   width: 100%;
