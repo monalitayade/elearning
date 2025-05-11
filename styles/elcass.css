@@ -1935,6 +1935,7 @@ td {
   .chapter-topics-layout.open {
     width: 85%;
     height: 100vh;
+    position: fixed;
   }
  
 }
