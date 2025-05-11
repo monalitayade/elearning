@@ -4483,6 +4483,7 @@ select {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   /* border: 1px solid #ccc; */
   background-color: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -4499,7 +4500,8 @@ select {
   margin-left: unset;
 }
 .grid-icon-wrapper{
-  width: auto;
+  /* width: auto; */
+  width: 90%;
   display: flex;
   padding: 0 10px;
 }
@@ -4507,9 +4509,16 @@ select {
   margin: 0;
 }
 .chapter-name{
-  width: 200px;
+  /* width: 200px;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap; */
+  flex: 1 1 100%;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 20px;
+    /* margin-bottom: 0.5rem; */
+    width: 100%;
+    display: block;
 }
 @media (max-width: 1200px) {
 	.login-page-carousel img {
