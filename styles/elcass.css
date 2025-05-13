@@ -1835,11 +1835,10 @@ td {
   width: auto;
   background-color: var(--primary-color);
   font-family: "poppins", sans-serif;
-  font-weight: 500;
   color: var(--light-pink);
   border-radius: 7px;
   cursor: pointer;
-  padding: 10px;
+  padding: 5px 8px;
   border: 0;
   overflow: hidden;
   transition: color 0.3s ease;
@@ -1847,6 +1846,7 @@ td {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light box shadow */
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
   text-decoration: none;
+  font-size: 14px;
 }
 .pannel-btn:hover {
   transform: scale(1.05); /* Slight zoom on hover */
@@ -4474,8 +4474,7 @@ select {
   display: flex;
 }
 .chapter-grid-wrapper{
-  /* width: 100%; */
-  width: 90%;
+  width: 75%;
   display: flex;
   flex-direction: column;
 }
@@ -4491,7 +4490,7 @@ select {
   transition: background-color 0.6s ease, transform 0.3s ease, box-shadow 0.3s ease;
   border:1px solid transparent; 
   margin-top: 15px;
-  padding: 16px 20px;
+  padding: 16px 5rem;
 }
 .chapter-grid-strip:hover{
   background-color: var(--light-pink);
@@ -4516,6 +4515,11 @@ select {
     width: 100%;
     display: block;
 	font-size: 14px;
+}
+@media (min-width: 1200px) and (max-width: 1360px) {
+  .chapter-grid-wrapper{
+    width: 90%;
+  }
 }
 @media (max-width: 1200px) {
 	.login-page-carousel img {
@@ -4609,6 +4613,9 @@ select {
 	}
 	.search-content-box {
 		flex-basis: 32%;
+	}
+	.chapter-grid-strip {
+		padding: 16px 2rem;
 	}
 }
 @media (max-width: 992px) {
@@ -4802,7 +4809,7 @@ select {
 		width: 400px;
 	}
 }
-@media (max-width: 600px) {
+@media (max-width: 767px) {
 	.reports-chart-container {
 		flex-direction: column;
 	}
